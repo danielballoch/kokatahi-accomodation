@@ -29,8 +29,11 @@ export default function AttractionsOutdoors(){
           attractionsOutdoorsTitle
           localDiningCuisineTitle
       }
-      allDatoCmsAttractionOutdoorItem {
+      allDatoCmsAttractionOutdoorItem(
+        sort: {position:ASC}
+      ) {
         nodes {
+          position
           title
           blurb
           image {
@@ -40,8 +43,11 @@ export default function AttractionsOutdoors(){
           
         }
       }
-      allDatoCmsDiningCusineItem {
+      allDatoCmsDiningCusineItem(
+        sort: {position:ASC}
+      ) {
         nodes {
+          position
           title
           blurb
           image {

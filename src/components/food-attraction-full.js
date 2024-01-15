@@ -52,7 +52,7 @@ h1 {
   }
   .main-image {
     width: 600px;
-    height: 600px;
+    height: 500px;
     background-color: black;
   }
   .content-right {
