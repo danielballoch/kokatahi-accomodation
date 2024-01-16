@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 import styled from "@emotion/styled"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
@@ -29,6 +29,14 @@ h1 {
       margin-top: 0;
       font-size: 60px;
     }
+    .content-item {
+      :hover {
+        cursor: pointer;
+      }
+    }
+    .active-p {
+      font-weight: 600;
+    }
     .main-button {
       display: inline-block;
       height: fit-content;
@@ -50,6 +58,7 @@ h1 {
 `
 
 export default function AttractionsOutdoors(){
+  const [activeItem, setActiveItem] = useState(0)
   const data = useStaticQuery(graphql`
   query DiningOptionsQuery {
       datoCmsHomePage {
@@ -57,9 +66,11 @@ export default function AttractionsOutdoors(){
           localDiningCuisineBlurb
       }
       allDatoCmsDiningCusineItem(
+        sort: {position:ASC}
         limit: 3
       ) {
         nodes {
+          position
           title
           blurb
           image {
@@ -81,16 +92,16 @@ let dining = data.allDatoCmsDiningCusineItem.nodes
           <p>{diningMain.localDiningCuisineBlurb}</p>
           <div>
             {dining.map((resturant, i)=>(
-              <div>
-                <p>{resturant.title}</p>
+              <div className="content-item" onMouseEnter={() => setActiveItem(i)}>
+                <p className={i === activeItem? "active-p" : ""}>{resturant.title}</p>
                 <hr/>
               </div>
               
             ))}
           </div>
-          <a className="main-button">See More Local Favourites</a>
+          <Link to="/food-and-attractions" className="main-button">See More Local Favourites</Link>
         </div>
-        <GatsbyImage className="main-image" image={getImage(dining[0].image.gatsbyImageData)} alt={dining[0].image.alt} placeholder="blur"/>
+        <GatsbyImage className="main-image" image={getImage(dining[activeItem].image.gatsbyImageData)} alt={dining[0].image.alt} placeholder="blur"/>
       </div>
     </Wrapper>
   )

@@ -56,6 +56,7 @@ export default function StayOptions(){
           stayOptionsTitle
       }
       datoCmsStayOption1 {
+        urlPath
         title
         featuredPrice
         rooms
@@ -67,6 +68,7 @@ export default function StayOptions(){
         }
       }
       datoCmsStayOption2 {
+        urlPath
         title
         featuredPrice
         rooms
@@ -78,6 +80,7 @@ export default function StayOptions(){
         }
       }
       datoCmsStayOption3 {
+        urlPath
         title
         featuredPrice
         rooms
@@ -111,7 +114,7 @@ console.log("stay options:", stayOptions)
               <p><span>{stayOption.rooms}</span><span>{stayOption.toilets}</span><span>{stayOption.sleeps}</span></p>
               <div className="button-div">
                 <Link to="/" className="main-button">Book Property</Link>
-                <Link to="/" className="main-button">Learn More</Link>
+                <Link to={"/"+stayOption.urlPath} className="main-button">Learn More</Link>
               </div>
             </div>
           </div>

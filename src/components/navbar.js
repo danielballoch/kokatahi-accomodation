@@ -208,8 +208,9 @@ export default function Navbar({contact, invert, location}) {
                     <span>Kokatahi </span>Accomodation
                 </Link> 
                 <div className={invert? "nav-middle invert" : "nav-middle" }>
+                    <Link to="/">Home</Link>
                     <Link to="/accomodation">Accomodation</Link>
-                    <Link to="/about-hokitika">About Hokitika</Link>
+                    {/* <Link to="/about-hokitika">About Hokitika</Link> */}
                     <Link to="/food-and-attractions">Food & Attractions</Link>
                     <Link to="/support">Support</Link>
                 </div>

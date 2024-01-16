@@ -88,7 +88,7 @@ export default function Intro(){
                       }
                   }}
               />
-              <Link to="/" className="intro-button">{introData.introButtonText}</Link>
+              <Link to="/about-hokitika" className="intro-button">{introData.introButtonText}</Link>
             </div>
         </Wrapper>
     )
