@@ -2,6 +2,7 @@ import React from "react"
 import styled from "@emotion/styled"
 import { GatsbyImage, getImage} from "gatsby-plugin-image"
 import { useStaticQuery, graphql, Link } from "gatsby"
+import ScrollAnimation from "./scrollAnimation"
 
 const Wrapper = styled.div`
 display: grid;
@@ -44,7 +45,7 @@ overflow: hidden;
 }
 .main-content {
     width: 700px;
-    height: fit-content;
+    height: 300px;
     h1 {
         margin-top: 0;
         margin-bottom: 0;
@@ -118,6 +119,7 @@ console.log("hello: ", data)
             <div className="content-wrapper">
                 <div className="main-content">
                     <h1>{c.heroTitle}</h1>
+                    <ScrollAnimation/>
                 </div>
             </div>
         </Wrapper>
