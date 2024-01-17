@@ -85,7 +85,7 @@ export default function AttractionsOutdoors(){
 let attractionsMain = data.datoCmsHomePage;
 let attractions = data.allDatoCmsAttractionOutdoorItem.nodes
   return(
-    <Wrapper>
+    <Wrapper id="attractions-and-outdoors">
       <div className="center-div">
         <div className="content">
           <h2>{attractionsMain.attractionsOutdoorsTitle}</h2>
@@ -99,7 +99,7 @@ let attractions = data.allDatoCmsAttractionOutdoorItem.nodes
               
             ))}
           </div>
-          <Link to="/food-and-attractions" className="main-button">See More Local Attractions</Link>
+          <Link to="/food-and-attractions#attractions-and-outdoors" className="main-button">See More Local Attractions</Link>
         </div>
         <GatsbyImage className="main-image" image={getImage(attractions[activeItem].image.gatsbyImageData)} alt={attractions[0].image.alt} placeholder="blur"/>
       </div>

@@ -20,7 +20,7 @@ justify-content: center;
     justify-content: right;
     align-items: center;
     align-content: center;
-    height: 100px;
+    height: 60px;
     margin: 10px auto;
     .logo {
         margin-right: auto;
@@ -74,7 +74,7 @@ justify-content: center;
         font-size: 30px;
         font-weight: 500;
         span {
-            color: salmon;
+            color: red;
         }
         // width: 100px;
         // height: 100px;

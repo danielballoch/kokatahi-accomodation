@@ -1,0 +1,127 @@
+import React, { useEffect, useState } from "react"
+import styled from "@emotion/styled"
+import BookingForm from "./booking-form"
+import Calendar from "react-calendar"
+import { isWithinInterval } from "date-fns";
+
+const Wrapper = styled.div`
+margin-top: 0px;
+min-height: 100vh;
+width: 100%;
+.main {
+    display: flex;
+    max-width: 980px;
+    margin: auto; 
+}
+.content-left {
+    width: 70%;
+    padding: 20px;
+    margin-right: 20px;
+    .react-calendar {
+        width: unset!important;
+        border: solid 1px rgba(14, 30, 37, 0.12)!important;
+    }
+    .react-calendar__viewContainer {
+        pointer-events: none;
+      }
+    .key {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 0;
+    }
+    .key-item {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+    }
+    .box {
+        display: inline-block;
+        height: 20px;
+        width: 40px;
+        margin-right: 10px;
+        border: solid 1px rgba(14, 30, 37, 0.12);
+    }
+    .today {
+        background-color: #ffff76;
+    }
+    .unavailable {
+        background-color: #f0f0f0;
+    }
+    .available {
+        background-color: white;
+    }
+}
+.content-right {
+    width: 50%;
+    border: solid 1px rgba(14, 30, 37, 0.12);
+    // box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    .host-text {
+        padding: 20px;
+    }
+}
+`
+
+function isWithinRange(date, range) {
+    return isWithinInterval(date, { start: range[0], end: range[1] });
+}
+function isWithinRanges(date, ranges) {
+    return ranges.some(range => isWithinRange(date, range));
+}
+
+let in3Days = new Date(2024, 1, 28);
+let in5Days = new Date(2024, 1, 28);
+let in13Days = new Date(2024, 1, 26);
+let in15Days = new Date(2024, 1, 26);
+
+
+
+
+export default function MainContent({datesUnavailable}){
+    const [bookedDates, setBookedDates] = useState([ [in3Days, in5Days],[in13Days, in15Days],])
+
+    useEffect(()=> {
+        let datesUnavailableRanges = []
+        for(let i = 0; i < datesUnavailable.length; i++){
+            let d = datesUnavailable[i].bookedDate.split("-")
+            let d2 = datesUnavailable[i].bookedDate.split("-")
+            //Use end date if it exists
+            if(datesUnavailable[i].endDate !== null){
+                d2 = datesUnavailable[i].endDate.split("-")
+            }
+            //Format needs to be: new Date(2023, 11, 26);
+            datesUnavailableRanges.push([new Date(Number(d[0]), Number(d[1])-1, Number(d[2])), new Date(Number(d2[0]), Number(d2[1])-1, Number(d2[2]))])
+        }
+        console.log("initial",datesUnavailable)
+        console.log("ranges",datesUnavailableRanges)
+        setBookedDates(datesUnavailableRanges);
+    },[datesUnavailable])
+
+    function tileDisabled({ date, view}) {
+      // Add class to tiles in month view only
+      if (view === 'month') {
+        // Check if a date React-Calendar wants to check is within any of the ranges
+        return isWithinRanges(date, bookedDates);
+      }
+    }
+
+    console.log("bookedDates: ", bookedDates)
+    return(
+        <Wrapper>
+            <div className="main">
+                <div className="content-left">
+                <Calendar minDate={new Date()} activeStartDate={null} tileDisabled={tileDisabled}/>
+                    <div className="key">
+                        <span className="key-item"><span className="box today"/> = Today</span>
+                        <span className="key-item"><span className="box unavailable"/> = Unavailable</span>
+                        <span className="key-item"><span className="box available"/> = Available</span>
+                    </div>
+                
+                </div>
+                <div className="content-right">
+                    <BookingForm bookedDates={bookedDates}/>
+                </div>
+            </div>
+        </Wrapper>
+    )
+}

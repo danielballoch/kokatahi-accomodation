@@ -64,17 +64,17 @@ div {
 }
 .toggle {
     max-height: 0px !important;
-    padding: 0 40px;
+    padding: 0px 40px;
     /* background-color: #f8f8f8; */
     overflow: hidden;
 }
 .answer {
     transition: max-height 200ms ease-in-out 0s;
     overflow: hidden;
-    padding: 0;
     margin: 10px 0;
-    border-left: 15px solid #4a9c2d;
+    border-left: 2px solid rgba(14, 30, 37, 0.12);
     // max-height: 300px;
+    box-sizing: border-box;
     p {
         margin: 10px;
     }

@@ -47,6 +47,8 @@ align-items:center;
   text-align: center;
   display: block;
   margin: 0 40px;
+  color: black;
+  text-decoration: none;
 }
 `
 export default function Reviews(){
@@ -76,8 +78,8 @@ return(
           ))}
         </div>
         <div className="button-div">
-          <a className="main-button">View All Stay Options</a>
-          <a className="main-button">Leave A Review</a>
+          <Link to="/accomodation" className="main-button">View All Stay Options</Link>
+          <Link className="main-button">Leave A Review</Link>
         </div>
         
       </div>
