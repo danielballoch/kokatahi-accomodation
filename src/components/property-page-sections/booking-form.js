@@ -77,13 +77,16 @@ form {
     .button-style {
         margin-top: 20px;
         padding: 20px;
-        background-color: #4a9c2d;
+        background-color: #808080;
         color: white;
-        border: solid 1px #4a9c2d;
+        border: solid 1px #808080;
+        transition: .3s;
         font-size: 14px;
         font-weight: 600;
         :hover {
             cursor: pointer;
+            background-color: #4a9c2d;
+            border: solid 1px #4a9c2d;
         }
     }
     option:hover {
