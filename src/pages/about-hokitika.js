@@ -22,7 +22,9 @@ margin-top: 200px;
       transition: .3s;
       border-bottom: solid 2px rgba(0,0,0,0);
       :hover {
-        border-bottom: solid 2px black;
+        color: #551a8b;
+        border-bottom: solid 2px #551a8b;
+        // font-style: italic;
       }
     }
   }
@@ -33,7 +35,7 @@ margin-top: 200px;
   justify-content: center;
   max-width: 1280px;
   margin: 100px auto;
-  border: solid 1px rgba(14, 30, 37, 0.12);
+  // border: solid 1px rgba(14, 30, 37, 0.12);
   // box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px,rgba(0, 0, 0, 0.07) 0px 2px 4px,rgba(0, 0, 0, 0.07) 0px 4px 8px,rgba(0, 0, 0, 0.07) 0px 8px 16px,rgba(0, 0, 0, 0.07) 0px 16px 32px,rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
 #section2 {
