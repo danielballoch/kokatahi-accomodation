@@ -323,7 +323,7 @@ export default function BookingForm({bookedDates}){
                         required  
                         {...register("Email", { required: true, maxLength: 100 })} 
                     />
-                    <label htmlFor="bikes">Date:</label>
+                    <label htmlFor="bikes">Booking Date(s):</label>
                     {/* <DRP /> */}
                     {/* <Calendar/> */}
                     {/* <DatePicker onChange={updateSelectedDate} value={selectedDate} tileDisabled={tileDisabled} minDate={new Date()} format="dd-MM-y"/> */}
