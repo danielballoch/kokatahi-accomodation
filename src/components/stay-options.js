@@ -5,20 +5,26 @@ import { GatsbyImage, getImage} from "gatsby-plugin-image"
 
 const Wrapper = styled.div`
 height: 100vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 // background-color: lightgrey;
 h1 {
   text-align: center;
   padding-top: 60px;
-  margin-top: 0;
+  // margin-top: 0;
 }
 .properties {
   display: flex;
   max-width: 1280px;
-  justify-content: space-between;
-  margin: auto;
+  width: 100%;
+  justify-content: space-around;
+  // margin: auto;
 }
 .property-card {
-  width: 420px;
+  width: 410px;
+  margin: 20px;
   height: 500px;
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
   background-color: white;
@@ -113,7 +119,7 @@ console.log("stay options:", stayOptions)
               <p>{stayOption.featuredPrice}</p>
               <p><span>{stayOption.rooms}</span><span>{stayOption.toilets}</span><span>{stayOption.sleeps}</span></p>
               <div className="button-div">
-                <Link to="/" className="main-button">Book Property</Link>
+                <Link to={"/"+stayOption.urlPath} className="main-button">Book Property</Link>
                 <Link to={"/"+stayOption.urlPath} className="main-button">Learn More</Link>
               </div>
             </div>

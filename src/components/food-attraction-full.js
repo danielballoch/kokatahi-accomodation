@@ -63,11 +63,11 @@ h1 {
 }
 `
 
-export default function AttractionsOutdoors({attractions, title}){
+export default function AttractionsOutdoors({attractions, title, id}){
   const [activeItem, setActiveItem] = useState(0)
   return(
         <Wrapper>
-        <div className="center-div">
+        <div className="center-div" id={id}>
             <div className="content">
             <h2>{title}</h2>
             <div>

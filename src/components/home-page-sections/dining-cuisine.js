@@ -99,7 +99,7 @@ let dining = data.allDatoCmsDiningCusineItem.nodes
               
             ))}
           </div>
-          <Link to="/food-and-attractions#dining-and-cuisine" className="main-button">See More Local Favourites</Link>
+          <Link to="/food-and-attractions/#dining-and-cuisine" className="main-button">See More Local Favourites</Link>
         </div>
         <GatsbyImage className="main-image" image={getImage(dining[activeItem].image.gatsbyImageData)} alt={dining[0].image.alt} placeholder="blur"/>
       </div>

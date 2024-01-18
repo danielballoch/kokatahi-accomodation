@@ -3,12 +3,11 @@ import styled from "@emotion/styled"
 import { GatsbyImage, getImage} from "gatsby-plugin-image"
 
 const Wrapper = styled.div`
-padding-top: 100px;
 display: flex;
 align-content: center;
 justify-content: center;
 width: 100%;
-height: 100%;
+height: 100vh;
 margin: auto;
 .main-image {
     margin: auto;
@@ -20,13 +19,10 @@ margin: auto;
 .fade {
     opacity: 0!important;
 }
-button {
-
-}
 .image-indicator {
     color: white;
     position: absolute;
-    top: 566px;
+    top: calc(50vh + 214px);
     left: calc(50vw - 980px / 2 + 10px);
     font-size: 14px;
     z-index: 200;

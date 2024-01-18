@@ -12,9 +12,9 @@ width: 100%;
     align-items: center;
     color: white;
     position: absolute;
-    top: 610px;
-    width: 60vw;
-    left: 20vw;
+    top: calc(50vh + 250px + 20px);
+    width: 900px;
+    left: calc(50vw - 450px);
     h1 {
         font-size: 20px;
         width: fit-content;

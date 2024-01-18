@@ -119,9 +119,9 @@ export default function Footer() {
             </Link>
             <div className="nav">
                    <Link to="/">Home</Link>
-                   <Link to="/">Accomodation</Link>
-                   <Link to="/#trials-lessons">About Hokitika</Link>
-                   <Link to="/#our-tracks">Food & Attractions</Link>
+                   <Link to="/accomodation">Accomodation</Link>
+                   <Link to="/about-hokitika">About Hokitika</Link>
+                   <Link to="/food-and-attractions">Food & Attractions</Link>
                    <Link to="/support">Support</Link>
             </div>
 

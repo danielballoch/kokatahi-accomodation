@@ -67,8 +67,8 @@ let dining = data.allDatoCmsDiningCusineItem.nodes
           <h1>Hokitika: The Beautiful Land of the West Coast</h1>
           <p>There’s a variety of activities and attractions to keep you busy in the West Coast. Everything from great bars, cafes, and restaurants to historic sites, trails, lakes, hunting and fishing spots etc.</p>
         </FoodAttractionsIntro>
-        <FoodAttractionsFull attractions={dining} title={data.datoCmsHomePage.localDiningCuisineTitle}/>
-        <FoodAttractionsFull attractions={attractions} title={data.datoCmsHomePage.attractionsOutdoorsTitle}/>
+        <FoodAttractionsFull id="dining-and-cuisine" attractions={dining} title={data.datoCmsHomePage.localDiningCuisineTitle}/>
+        <FoodAttractionsFull id="attractions-and-outdoors" attractions={attractions} title={data.datoCmsHomePage.attractionsOutdoorsTitle}/>
     </Layout>
   )
 }
