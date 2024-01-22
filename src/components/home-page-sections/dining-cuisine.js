@@ -53,7 +53,34 @@ h1 {
     height: 600px;
     background-color: black;
   }
-  
+}
+@media(max-width: 1200px){
+  margin-top: 200px;
+  height: unset;
+  .main-image {
+    display: none;
+  }
+  hr {
+    display: none;
+  }
+  .mobile-image {
+    display: block;
+    height: 300px;
+  }
+  .content-item {
+    p {
+      font-weight: 600;
+      margin-top: 80px;
+    }
+  }
+  .main-button {
+    margin: auto;
+  }
+  .content {
+    width: 90vw!important;
+    max-width: 600px;
+    padding: 0!important;
+  }
 }
 `
 
@@ -94,6 +121,7 @@ let dining = data.allDatoCmsDiningCusineItem.nodes
             {dining.map((resturant, i)=>(
               <div className="content-item" onMouseEnter={() => setActiveItem(i)}>
                 <p className={i === activeItem? "active-p" : ""}>{resturant.title}</p>
+                <GatsbyImage className="mobile-image" image={getImage(resturant.image.gatsbyImageData)} alt={resturant.image.alt} placeholder="blur"/>
                 <hr/>
               </div>
               

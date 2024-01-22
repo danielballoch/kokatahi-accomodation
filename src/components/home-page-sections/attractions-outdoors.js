@@ -53,7 +53,37 @@ h1 {
     height: 600px;
     background-color: black;
   }
-  
+}
+.mobile-image {
+  display: none;
+}
+@media(max-width: 1200px){
+  margin-top: 200px;
+  height: unset;
+  .main-image {
+    display: none;
+  }
+  hr {
+    display: none;
+  }
+  .mobile-image {
+    display: block;
+    height: 300px;
+  }
+  .content-item {
+    p {
+      font-weight: 600;
+      margin-top: 80px;
+    }
+  }
+  .main-button {
+    margin: auto;
+  }
+  .content {
+    width: 90vw!important;
+    max-width: 600px;
+    padding: 0!important;
+  }
 }
 `
 
@@ -95,6 +125,7 @@ let attractions = data.allDatoCmsAttractionOutdoorItem.nodes
               <div className="content-item" onMouseEnter={() => setActiveItem(i)}>
                 <p className={i === activeItem? "active-p" : ""}>{attraction.title}</p>
                 <hr/>
+                <GatsbyImage className="mobile-image" image={getImage(attraction.image.gatsbyImageData)} alt={attraction.image.alt} placeholder="blur"/>
               </div>
               
             ))}

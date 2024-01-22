@@ -26,19 +26,21 @@ width: 100%;
       display: inline-block;
     }
     h2 {
-        padding-top: 60px;
         margin-top: 0;
         margin-bottom: 0;
         font-size: 46px;
+        padding: 60px 20px 0 20px;
 
     }
     h3 {
       margin-top: 60px;
       margin-bottom: 0;
       font-size: 30px;
+      padding: 0 20px;
     }
     p {
       font-size: 15px;
+      padding: 0 20px;
       margin-bottom: 40px;
     }
   }

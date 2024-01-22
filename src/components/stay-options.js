@@ -4,7 +4,7 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 import { GatsbyImage, getImage} from "gatsby-plugin-image"
 
 const Wrapper = styled.div`
-height: 100vh;
+min-height: 100vh;
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -23,9 +23,10 @@ h1 {
   // margin: auto;
 }
 .property-card {
-  width: 410px;
+  max-width: 410px;
+  width: 100%;
   margin: 20px;
-  height: 500px;
+  min-height: 500px;
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
   background-color: white;
   .main-image {
@@ -51,6 +52,22 @@ h1 {
     margin-right: 20px;
     color: black;
     text-decoration: none;
+  }
+}
+@media(max-width: 1190px){
+  .properties {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+  }
+}
+@media(max-width: 387px){
+  .button-div {
+    flex-direction: column;
+  }
+  .property-card {
+
   }
 }
 `

@@ -11,7 +11,7 @@ margin-top: -54px;
 // margin-left: -54px;
 position: absolute;
 z-index: 10;
-left: calc(50% - 30px);
+left: calc(50% - 15px);
 top: 70%;
 transform: scale(.5) ;
 

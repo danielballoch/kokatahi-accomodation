@@ -5,13 +5,16 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 const Wrapper = styled.div`
 height: 100vh;
 min-height: 960px;
+margin: auto;
 width: 100%;
+max-width: 90vw;
 // background-color: lightblue; 
 display: flex;
 flex-direciton: column;
 flex-direction: center;
 align-items:center;
 .main-content {
+  width: 100%;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -19,6 +22,7 @@ align-items:center;
   align-items: center;
   h1 {
     font-size: 46px;
+    text-align: center;
   }
 }
 .review-wrapper {
@@ -49,6 +53,21 @@ align-items:center;
   margin: 0 40px;
   color: black;
   text-decoration: none;
+}
+@media(max-width: 800px){
+  .review-wrapper {
+    margin: 0;
+    flex-direction: column;
+  }
+}
+@media(max-width: 600px){
+  margin: 100px auto;
+  .button-div {
+    flex-direction: column-reverse;
+    .main-button {
+      margin-bottom: 30px;
+    }
+  }
 }
 `
 export default function Reviews(){

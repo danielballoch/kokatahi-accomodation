@@ -63,17 +63,11 @@ overflow: hidden;
 @media(max-width: 640px){
     .main-content {
         width: 95%;
-        padding: 40px;
+        padding: 0px;
         box-sizing: border-box;
         h1 {
             font-size: 42px;
             text-align: center
-        }
-        p {
-            text-align: center;
-        }
-        button {
-            width: 100%;
         }
     }
 }
