@@ -219,10 +219,10 @@ export default function Navbar({contact, invert, location}) {
                 <Hamburger invert={invert} toggle={toggle} clickFunction={() => {updateMenu(!menu); updateToggle(!toggle)}}/>
                 <div className={menu ? "side-drawer" : "hide"}>
                     <Link  onClick={() => { if (location === "/"){updateMenu(!menu);} updateToggle(!toggle)}} to="/">Home</Link>
-                    <Link  onClick={() => { if (location === "/accomodation"){updateMenu(!menu);} updateToggle(!toggle)}} to="/">Accomodation</Link>
-                    <Link onClick={() => { if (location === "/"){updateMenu(!menu);} updateToggle(!toggle)}} to="/about-hokitika">About Hokitika</Link>
-                    <Link onClick={() => { if (location === "/"){updateMenu(!menu);} updateToggle(!toggle)}} to="/food-and-attractions">Food & Attractions</Link>
-                    <Link onClick={() => { if (location === "/support/"){updateMenu(!menu); updateToggle(!toggle)}}} to="/support">Support</Link>
+                    <Link  onClick={() => { if (location === "/accomodation"){updateMenu(!menu);} updateToggle(!toggle)}} to="/accomodation">Accomodation</Link>
+                    <Link onClick={() => { if (location === "/about-hokitika"){updateMenu(!menu);} updateToggle(!toggle)}} to="/about-hokitika">About Hokitika</Link>
+                    <Link onClick={() => { if (location === "/food-and-attractions"){updateMenu(!menu);} updateToggle(!toggle)}} to="/food-and-attractions">Food & Attractions</Link>
+                    <Link onClick={() => { if (location === "/support"){updateMenu(!menu); updateToggle(!toggle)}}} to="/support">Support</Link>
                 </div>
             </div>
     </Wrapper>

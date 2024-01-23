@@ -29,6 +29,20 @@ width: 100%;
         padding: 20px;
     }
 }
+@media(max-width: 1000px){
+    .main {
+        flex-direction: column;
+        .content-left {
+            width: 90vw;
+            padding: 0;
+            margin: auto;
+        }
+        .content-right {
+            margin: 100px 0 100px 5vw;
+            width: 90vw;
+        }
+    }
+}
 `
 
 

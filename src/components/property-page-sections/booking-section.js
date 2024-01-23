@@ -60,6 +60,25 @@ width: 100%;
         padding: 20px;
     }
 }
+@media(max-width: 1000px){
+    .main {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .key {
+        flex-wrap: wrap;
+        justify-content: flex-start!important;
+        .key-item {
+            margin: 0 20px 20px 0;
+        }
+    }
+    .content-left, .content-right {
+        width: 90vw;
+    }
+    margin-bottom: 200px;
+    
+}
 `
 
 function isWithinRange(date, range) {

@@ -1,7 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Layout from "../components/layout"
-import { GatsbyImage, getImage} from "gatsby-plugin-image"
 import Hero from "../components/property-page-sections/hero"
 import MainContent from "../components/property-page-sections/main-content"
 import BookingSection from "../components/property-page-sections/booking-section"
