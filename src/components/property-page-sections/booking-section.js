@@ -76,8 +76,7 @@ width: 100%;
     .content-left, .content-right {
         width: 90vw;
     }
-    margin-bottom: 200px;
-    
+    margin-bottom: 200px; 
 }
 `
 

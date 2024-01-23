@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "@emotion/styled"
 import ImageSlider from "./image-slider"
+import ImageGallery from "./react-image-slider"
 
 const Wrapper = styled.div`
 background-color: black;
@@ -49,6 +50,21 @@ width: 100%;
         
     }
 }
+@media(max-width: 950px){
+    .content-box {
+        flex-direction: column;
+        width: 90vw;
+        margin: auto;
+        padding: 0;
+        left: 5vw;
+        text-align: center;
+    }
+}
+@media(max-width: 600px){
+    .content-box {
+        top: 45vh;
+    }
+}
 `
 
 
@@ -58,7 +74,8 @@ export default function PropertyHero({images, title, blurb}){
     console.log(title, blurb)
     return(
         <Wrapper>
-            <ImageSlider images={images}/>
+            <ImageGallery images={images}/>
+            {/* <ImageSlider images={images}/> */}
             <div className="content-box">
                 <h1>{title}</h1>
                 <p>{blurb}</p>
