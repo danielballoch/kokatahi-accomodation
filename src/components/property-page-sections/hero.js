@@ -54,15 +54,21 @@ width: 100%;
     .content-box {
         flex-direction: column;
         width: 90vw;
-        margin: auto;
+        margin: 0px auto 0 auto;
         padding: 0;
         left: 5vw;
         text-align: center;
+        h1 {
+            margin-right: 0;
+        }
     }
 }
 @media(max-width: 600px){
     .content-box {
-        top: 45vh;
+        top: 60vh;
+    }
+    .features-box {
+        margin-top: 300px;
     }
 }
 `

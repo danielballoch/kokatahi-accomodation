@@ -20,6 +20,11 @@ img {
     width: 60vw;
     margin: auto;
 }
+.slider-control-bottomcenter {
+    div {
+        top: 20px!important;
+    }
+}
 @media(max-width: 1500px){
     .main-image {
         height: 65vh;
@@ -32,8 +37,9 @@ img {
     }
 }
 @media(max-width: 600px){
+    padding-top: 120px;
     .main-image {
-        height: 30vh;
+        height: 40vh;
         width: 95vw;
         margin: auto;
     }
