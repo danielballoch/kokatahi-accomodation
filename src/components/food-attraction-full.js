@@ -123,12 +123,12 @@ export default function AttractionsOutdoors({attractions, title, id}){
             <h2>{title}</h2>
             <div className="nav-menu">
             {attractions.map((attraction, i)=>(
-              <a href={"#"+i}>{attraction.title}</a>
+              <a href={"#"+id+i}>{attraction.title}</a>
             ))}
             </div>
             <div>
                 {attractions.map((attraction, i)=>(
-                <div id={i} className="content-item" onMouseEnter={() => setActiveItem(i)} key={"level "+i}>
+                <div id={id+i} className="content-item" onMouseEnter={() => setActiveItem(i)} key={"level "+i}>
                     <p className={i === activeItem? "active-p" : ""}>{attraction.title}</p>
                     <GatsbyImage className="main-image mobile" image={getImage(attraction.image.gatsbyImageData)} alt={attractions[0].image.alt} placeholder="blur"/>
                     <h3 className="mobile">{attraction.title}</h3>

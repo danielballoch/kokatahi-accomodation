@@ -14,19 +14,20 @@ margin-top: 200px;
   text-align: center;
   h1 {
     font-size: 50px;
+    margin-bottom: 0;
   }
   .mini-nav {
-    font-size: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     a {
-      color: black;
+      color: white;
+      background-color: black;
+      padding: 20px 10px;
+      margin: 5px;
       text-decoration: none;
       transition: .3s;
       border-bottom: solid 2px rgba(0,0,0,0);
-      :hover {
-        color: #551a8b;
-        border-bottom: solid 2px #551a8b;
-        // font-style: italic;
-      }
     }
   }
 }
@@ -111,7 +112,10 @@ console.log(content)
         <Wrapper>
           <div className="intro"> 
             <h1>{content.heading}</h1>
-            <p className="mini-nav"><a href="#section1">{content.section1Title}</a> - <a href="#section2">{content.section2Title}</a> - <a href="#section3">{content.section3Title}</a></p>
+            <p className="mini-nav">
+              <a href="#section1">{content.section1Title}</a>
+              <a href="#section2">{content.section2Title}</a>
+              <a href="#section3">{content.section3Title}</a></p>
             <p>{content.headingSubtext}</p>
           </div>
           <div id="section1">

@@ -40,7 +40,7 @@ h1 {
     .main-button {
       display: inline-block;
       height: fit-content;
-      padding: 10px 80px;
+      padding: 20px 80px;
       border: solid black 1px;
       margin-top: 40px;
       margin-right: 20px;
@@ -67,13 +67,14 @@ h1 {
     display: none;
   }
   .mobile-image {
-    display: block;
+    display: block!important;
     height: 300px;
   }
   .content-item {
     p {
       font-weight: 600;
       margin-top: 80px;
+      font-size: 22px;
     }
   }
   .main-button {
