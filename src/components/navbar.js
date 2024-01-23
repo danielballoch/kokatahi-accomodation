@@ -8,12 +8,12 @@ const Wrapper = styled.header`
 display: flex;
 justify-content: center;
 // background-color: white;
-// width: 100%;
+width: 100vw;
 // height: 100px;
 .wrapper {
     z-index: 500;
     position: absolute;
-    width: 100%;
+    width: 100vw;
     max-width: 1280px;
     display: flex;
     flex-direction: row;

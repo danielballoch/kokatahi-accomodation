@@ -54,6 +54,9 @@ h1 {
     background-color: black;
   }
 }
+.mobile-image {
+  display: none!important;
+}
 @media(max-width: 1200px){
   margin-top: 200px;
   height: unset;
@@ -75,6 +78,9 @@ h1 {
   }
   .main-button {
     margin: auto;
+    padding: 20px 0!important;
+    width: 100%;
+    text-align: center;
   }
   .content {
     width: 90vw!important;

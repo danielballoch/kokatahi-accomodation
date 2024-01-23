@@ -59,7 +59,58 @@ h1 {
     width: 600px;
     min-height: 960px;
   }
-  
+}
+.nav-menu {
+  display: none;
+}
+.mobile {
+  display: none;
+}
+@media(max-width: 1220px){
+  .mobile {
+    display: block;
+  }
+  .nav-menu {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    a {
+      color: white;
+      padding: 20px 10px;
+      background-color: black;
+      text-decoration: none;
+      margin: 0 10px 10px 0;
+    }
+  }
+  .content-right {
+    display: none;
+  }
+  .content {
+    width: 90vw!important;
+    padding: 0!important;
+    h2 {
+      font-size: 28px!important;
+      margin-bottom: 10px!important;
+    }
+  }
+  .content-item {
+    margin-bottom: 80px;
+    p {
+      :first-of-type {
+        display: none;
+      }
+    }
+    .main-image {
+      width: 100%;
+    }
+    h3 {
+      margin-bottom: 0!important;
+      margin-top: 20px!important;
+    }
+    hr {
+      display: none;
+    }
+  }
 }
 `
 
@@ -70,10 +121,18 @@ export default function AttractionsOutdoors({attractions, title, id}){
         <div className="center-div" id={id}>
             <div className="content">
             <h2>{title}</h2>
+            <div className="nav-menu">
+            {attractions.map((attraction, i)=>(
+              <a href={"#"+i}>{attraction.title}</a>
+            ))}
+            </div>
             <div>
                 {attractions.map((attraction, i)=>(
-                <div className="content-item" onMouseEnter={() => setActiveItem(i)} key={"level "+i}>
+                <div id={i} className="content-item" onMouseEnter={() => setActiveItem(i)} key={"level "+i}>
                     <p className={i === activeItem? "active-p" : ""}>{attraction.title}</p>
+                    <GatsbyImage className="main-image mobile" image={getImage(attraction.image.gatsbyImageData)} alt={attractions[0].image.alt} placeholder="blur"/>
+                    <h3 className="mobile">{attraction.title}</h3>
+                    <p className="mobile">{attraction.blurb}</p>
                     <hr/>
                 </div>
                 

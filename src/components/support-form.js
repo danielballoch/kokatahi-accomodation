@@ -185,7 +185,7 @@ form {
         font-size: 60px!important;
     }
 }
-@media(max-width:600px){
+@media(max-width:860px){
     width: 100%;
     max-width: 90vw;
     margin: auto;

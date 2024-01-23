@@ -55,7 +55,7 @@ h1 {
   }
 }
 .mobile-image {
-  display: none;
+  display: none!important;
 }
 @media(max-width: 1200px){
   margin-top: 200px;
@@ -74,10 +74,14 @@ h1 {
     p {
       font-weight: 600;
       margin-top: 80px;
+      font-size: 22px;
     }
   }
   .main-button {
     margin: auto;
+    padding: 20px 0!important;
+    width: 100%;
+    text-align: center;
   }
   .content {
     width: 90vw!important;

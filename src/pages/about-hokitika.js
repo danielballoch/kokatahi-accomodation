@@ -9,6 +9,7 @@ width: 100%;
 margin-top: 200px;
 .intro {
   max-width: 800px;
+  width: 90vw;
   margin: auto;
   text-align: center;
   h1 {
@@ -58,6 +59,18 @@ margin-top: 200px;
   }
   padding: 40px;
   width: 50%;
+}
+@media(max-width: 1040px){
+  #section1, #section2, #section3 {
+    flex-direction: column-reverse!important;
+    .main-image {
+      width: 100%;
+      height: 90vw;
+    }
+    .main-content{
+      width: 90vw;
+    }
+  }
 }
 `
 

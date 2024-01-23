@@ -41,16 +41,21 @@ align-items:center;
   }
 }
 .button-div {
-  margin: 40px;
+  margin: 40px 0;
+  width: 100%;
   display: flex;
+
 }
 .main-button {
+  box-sizing: border-box;
   border: solid 1px black;
-  padding: 14px 20px;
-  width: 200px;
+  // padding: 14px 20px;
+  padding: 20px 0;
+  width: 100%;
+  margin: auto;
   text-align: center;
   display: block;
-  margin: 0 40px;
+  // margin: 0 40px;
   color: black;
   text-decoration: none;
 }

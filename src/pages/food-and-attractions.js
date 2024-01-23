@@ -8,8 +8,9 @@ const FoodAttractionsIntro = styled.div`
 padding-top: 200px;
 padding-bottom: 50px;
 padding-right: 400px;
-margin:auto;
+margin: auto;
 max-width: 800px;
+width: 90vw;
 h1 {
   font-weight: 300;
 }
@@ -18,6 +19,22 @@ h1, p {
 }
 p {
   padding-right: 200px;
+}
+@media(max-width:1220px){
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: flex-start;
+padding-right: 0;
+margin-left: 5vw;
+h1, p {
+  padding-left: 0;
+  margin: auto;
+  width: 100%;
+}
+p {
+  padding-right: 0;
+}
 }
 `
 

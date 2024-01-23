@@ -13,9 +13,10 @@ background-color: #17181C;
 color: white;
 height: 100vh;
 min-height: 860px;
-width: 100%;
+width: 100vw;
 .content {
     text-align: center;
+    width: 100%;
     max-width: 540px;
     .intro-button {
       padding: 20px 100px;

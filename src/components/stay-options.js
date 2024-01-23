@@ -46,7 +46,9 @@ h1 {
   .main-button {
     display: inline-block;
     height: fit-content;
-    padding: 10px 20px;
+    width: 50%;
+    text-align: center;
+    padding: 20px 0;
     border: solid black 1px;
     margin-top: 20px;
     margin-right: 20px;
@@ -65,9 +67,9 @@ h1 {
 @media(max-width: 387px){
   .button-div {
     flex-direction: column;
-  }
-  .property-card {
-
+    .main-button {
+      width: 100%;
+    }
   }
 }
 `

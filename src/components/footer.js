@@ -8,7 +8,7 @@ position: relative;
 background-color: black;
 box-sizing: border-box;
 color: white;
-width: 100%;
+width: 100vw;
 max-width: 100vw;
 display: flex;
 flex-direction: column;
@@ -26,7 +26,8 @@ h2 {
 }
 a {
     color: white;
-    margin: 10px 20px;
+    margin: 10px 0;
+    box-sizing: border-box;
     // padding: 10px;
     text-decoration: none;
 }
@@ -34,6 +35,8 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100vw;
+    padding: 0;
     height: auto;
     margin: 0;
     .nav {
@@ -41,6 +44,7 @@ a {
         flex-direction: row;
         a {
             font-size: 18px;
+            
         }
     }
 }

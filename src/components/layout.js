@@ -1,16 +1,21 @@
 import React from "react"
-import { useStaticQuery, graphql } from 'gatsby'
+import styled from "@emotion/styled"
 import Navbar from "./navbar"
 import Footer from "./footer"
+
+const Wrapper = styled.div`
+overflow: hidden;
+`
+
 
 
 export default function Layout({children, invert, location}){
   return (
-    <div>
+    <Wrapper>
       <Navbar invert={invert} contact={"hello"} location={location}/>
       <main>{children}</main>
       <Footer/>
-    </div>
+    </Wrapper>
   )
 }
 
