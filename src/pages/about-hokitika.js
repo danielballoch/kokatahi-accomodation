@@ -3,6 +3,7 @@ import Layout from "../components/layout"
 import styled from "@emotion/styled"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import SEO from "../components/seo"
 
 const Wrapper = styled.div`
 width: 100%;
@@ -152,3 +153,8 @@ console.log(content)
     </Layout>
   )
 }
+
+export const Head = () => <SEO
+title="About Hokitika | Kokatahi Accommodation"
+description="Read a little bit about the history of Hokitika including original Māori natives, the West Coast Gold Rush and historic buildings."
+/>

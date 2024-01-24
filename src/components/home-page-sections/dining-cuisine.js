@@ -22,7 +22,7 @@ h1 {
 
   margin: auto;
   .content {
-    padding: 60px;
+    padding: 0 60px;
     box-sizing: border-box;
     width: 600px;
     h2 {
@@ -49,6 +49,7 @@ h1 {
     }
   }
   .main-image {
+    // padding: 60px;
     width: 600px;
     height: 600px;
     background-color: black;

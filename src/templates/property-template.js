@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import Hero from "../components/property-page-sections/hero"
 import MainContent from "../components/property-page-sections/main-content"
 import BookingSection from "../components/property-page-sections/booking-section"
+import SEO from "../components/seo"
 
 
 
@@ -87,4 +88,8 @@ console.log(properties)
   )
 }
 
-export const Head = () => <title>The Full Suite</title>
+export const Head = ({pageContext}) => <SEO
+title={"Stay Option " + Number(pageContext.id + 1)  + " | Kokatahi Accommodation"}
+description={"Stay Option " + Number(pageContext.id + 1)  + " could be perfect for your West Coast or Hokitika trip."}
+/>
+

@@ -6,6 +6,7 @@ import StayOptions from "../components/stay-options"
 import AttractionsAndOutdoors from "../components/home-page-sections/attractions-outdoors"
 import DiningAndCuisine from "../components/home-page-sections/dining-cuisine"
 import Reviews from "../components/reviews"
+import SEO from "../components/seo"
 
 export default function Index(){
   return(
@@ -20,4 +21,7 @@ export default function Index(){
   )
 }
 
-export const Head = () => <title>Home Page</title>
+export const Head = () => <SEO
+title="Kokatahi BnB | Hokitika and West Coast Accomodation"
+description="Kokatahi BnB is the perfect place to stay for your Hokitika or West Coast Exploration."
+/>

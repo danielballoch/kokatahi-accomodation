@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "@emotion/styled"
 import { useStaticQuery, graphql, Link } from "gatsby"
 
@@ -32,13 +32,24 @@ align-items:center;
     max-width: 400px;
     text-align: center;
     margin: 0 20px;
+    opacity: 0.5;
     .name {
       font-size: 18px;
     }
     .location {
       color: grey;
     }
+    transition: .3s;
+    :hover {
+      cursor: pointer;
+    }
   }
+}
+.active {
+  margin-top: -20px!important;
+  margin-bottom:20px!important;
+  opacity: 1!important;
+  transform: scale(1.1);
 }
 .button-div {
   margin: 40px;
@@ -90,13 +101,14 @@ export default function Reviews(){
 `)
 let testimonials = data.allDatoCmsTestimonial.nodes;
 console.log(testimonials)
+let [active, setActive] = useState(1)
 return(
     <Wrapper> 
       <div className="main-content">
         <h1>Guest Reviews & Feedback</h1>
         <div className="review-wrapper">
           {testimonials.map((review, i)=>(
-            <div className="review">
+            <div className={active === i? "review active" : "review"} onMouseOver={() => setActive(i)}>
               <p>“{review.review}”</p>
               <p className="name">{review.name} <span className="location">| {review.from}</span></p>
             </div>

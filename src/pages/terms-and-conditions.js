@@ -3,6 +3,7 @@ import Layout from "../components/layout"
 import styled from "@emotion/styled"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { StructuredText } from 'react-datocms';
+import SEO from "../components/seo"
 
 const Wrapper = styled.div`
 margin: 200px auto;
@@ -40,3 +41,8 @@ let terms = data.datoCmsTermsAndConditionsPage.termsAndConditions.value
     </Layout>
   )
 }
+
+export const Head = () => <SEO
+title="Terms & Conditions | Kokatahi Accommodation"
+description="Read through our Kokatahi Accomodation terms and conditions."
+/>

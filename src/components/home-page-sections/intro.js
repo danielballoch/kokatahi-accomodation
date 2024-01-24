@@ -14,6 +14,20 @@ color: white;
 height: 100vh;
 min-height: 860px;
 width: 100vw;
+.button {
+    padding: 15px 100px;
+    border: 2px solid white;
+    background-color: #17181C;
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+    transition: .3s;
+    border-radius: 3px;
+    :hover {
+        background-color: #f7f7f7;
+    }
+}
 .content {
     text-align: center;
     width: 100%;
@@ -30,8 +44,7 @@ width: 100vw;
         margin-top: 0;
         margin-bottom: 0;
         font-size: 46px;
-        padding: 60px 20px 0 20px;
-
+        // padding: 60px 20px 0 20px;
     }
     h3 {
       margin-top: 60px;
@@ -91,7 +104,7 @@ export default function Intro(){
                       }
                   }}
               />
-              <Link to="/about-hokitika" className="intro-button">{introData.introButtonText}</Link>
+              <Link to="/about-hokitika" className="button">{introData.introButtonText}</Link>
             </div>
         </Wrapper>
     )

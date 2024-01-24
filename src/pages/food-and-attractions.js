@@ -3,6 +3,7 @@ import Layout from "../components/layout"
 import styled from "@emotion/styled"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import FoodAttractionsFull from "../components/food-attraction-full"
+import SEO from "../components/seo"
 
 const FoodAttractionsIntro = styled.div`
 padding-top: 200px;
@@ -89,3 +90,8 @@ let dining = data.allDatoCmsDiningCusineItem.nodes
     </Layout>
   )
 }
+
+export const Head = () => <SEO
+title="Hokitika Food and Attractions | Kokatahi Accommodation"
+description="Check out our reccomended resturants, cafes, attractions and activities in Hokitika and around the West Coast."
+/>

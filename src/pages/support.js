@@ -1,11 +1,10 @@
 import React, {useState} from "react"
 import styled from "@emotion/styled"
 import Layout from "../components/layout"
-import { Link,graphql } from "gatsby"
+import { graphql } from "gatsby"
 import SEO from "../components/seo"
 import { StructuredText } from 'react-datocms';
 import SupportForm from "../components/support-form"
-import { GatsbyImage, getImage} from "gatsby-plugin-image"
 
 const Wrapper = styled.div`
 display: flex;
@@ -193,12 +192,6 @@ const FAQ = (data) => {
 
 export default FAQ;
 
-export const Head = () => <SEO
-title="SUPPORT & FAQ | MOTOSCHOOL"
-description="Read through our frequently asked questions or get in touch through the contact form"
-/>
-
-
 export const pageQuery = graphql`
     query FAQ{
       allDatoCmsFaq(
@@ -218,3 +211,8 @@ export const pageQuery = graphql`
       }
     }
 `
+
+export const Head = () => <SEO
+title="Support | Kokatahi Accommodation"
+description="Checkout our FAQ's or get in touch via email: tuisbnb@gmail.com, phone: 021 506 496 or our support contact form."
+/>

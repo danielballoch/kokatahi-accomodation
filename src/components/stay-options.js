@@ -26,9 +26,12 @@ h1 {
   max-width: 410px;
   width: 100%;
   margin: 20px;
-  min-height: 500px;
+  // min-height: 500px;
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
   background-color: white;
+  overflow: none;
+  color: black!important;
+  text-decoration: none;
   .main-image {
     height: 260px;
     width: 100%;
@@ -48,12 +51,17 @@ h1 {
     height: fit-content;
     width: 50%;
     text-align: center;
-    padding: 20px 0;
+    padding: 10px 0;
     border: solid black 1px;
     margin-top: 20px;
     margin-right: 20px;
     color: black;
     text-decoration: none;
+    background-color: white;
+    transition: .3s;
+    :hover {
+      background-color: #f7f7f7;
+    }
   }
 }
 @media(max-width: 1190px){
@@ -131,18 +139,18 @@ console.log("stay options:", stayOptions)
       <h1>{c.stayOptionsTitle}</h1>
       <div className="properties">
         {stayOptions ? stayOptions.map((stayOption, i) => (
-            <div className="property-card">
+            <Link to={"/"+stayOption.urlPath} className="property-card">
             <GatsbyImage className="main-image" image={getImage(stayOption.mainImage.gatsbyImageData)} alt={stayOption.mainImage.alt} placeholder="blur"/>
             <div className="property-info">
               <h3>{stayOption.title}</h3>
-              <p>{stayOption.featuredPrice}</p>
               <p><span>{stayOption.rooms}</span><span>{stayOption.toilets}</span><span>{stayOption.sleeps}</span></p>
-              <div className="button-div">
+              <p>{stayOption.featuredPrice}</p>
+              {/* <div className="button-div">
                 <Link to={"/"+stayOption.urlPath} className="main-button">Book Property</Link>
                 <Link to={"/"+stayOption.urlPath} className="main-button">Learn More</Link>
-              </div>
+              </div> */}
             </div>
-          </div>
+          </Link>
         )) : <div/>}
       </div>
     </Wrapper>
