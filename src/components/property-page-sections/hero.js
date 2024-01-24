@@ -69,6 +69,12 @@ width: 100%;
     }
     .features-box {
         margin-top: 300px;
+        span {
+            font-size: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 }
 `

@@ -14,7 +14,7 @@ padding-top: 100px;
     fill: white;
 }
 img {
-    border-radius: 15px;
+    // border-radius: 15px;
 }
 .slider-container {
     width: 60vw;
