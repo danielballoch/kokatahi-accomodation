@@ -32,7 +32,7 @@ margin-top: 200px;
     }
   }
 }
-#section1, #section2, #section3 {
+#section1, #section2, #section3, #section4 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,7 +41,7 @@ margin-top: 200px;
   // border: solid 1px rgba(14, 30, 37, 0.12);
   // box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px,rgba(0, 0, 0, 0.07) 0px 2px 4px,rgba(0, 0, 0, 0.07) 0px 4px 8px,rgba(0, 0, 0, 0.07) 0px 8px 16px,rgba(0, 0, 0, 0.07) 0px 16px 32px,rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
-#section2 {
+#section2, #section4 {
   flex-direction: row-reverse;
 }
 .main-image {
@@ -63,7 +63,7 @@ margin-top: 200px;
   width: 50%;
 }
 @media(max-width: 1040px){
-  #section1, #section2, #section3 {
+  #section1, #section2, #section3, #section4 {
     flex-direction: column-reverse!important;
     .main-image {
       width: 100%;
@@ -83,23 +83,26 @@ export default function AboutHokitika(){
       heading
       headingSubtext
       section1Title
-      section1Subheading
       section1Content
       section1Image {
         gatsbyImageData
         alt
       }
       section2Title
-      section2Subheading
       section2Content
       section2Image {
         gatsbyImageData
         alt
       }
       section3Title
-      section3Subheading
       section3Content
       section3Image {
+        gatsbyImageData
+        alt
+      }
+      section4Title
+      section4Content
+      section4Image {
         gatsbyImageData
         alt
       }
@@ -107,7 +110,7 @@ export default function AboutHokitika(){
   }     
  `)
 let content = data.datoCmsAboutHokitikaPage
-console.log(content)
+console.log(content.section4Image)
   return(
     <Layout invert={true}>
         <Wrapper>
@@ -116,13 +119,15 @@ console.log(content)
             <p className="mini-nav">
               <a href="#section1">{content.section1Title}</a>
               <a href="#section2">{content.section2Title}</a>
-              <a href="#section3">{content.section3Title}</a></p>
+              <a href="#section3">{content.section3Title}</a>
+              <a href="#section4">{content.section4Title}</a>
+              </p>
             <p>{content.headingSubtext}</p>
           </div>
           <div id="section1">
             <div className="main-content">
               <h2>{content.section1Title}</h2>
-              <p className="sub">{content.section1Subheading}</p>
+              {/* <p className="sub">{content.section1Subheading}</p> */}
               {content.section1Content.split("\n").map((i,key) => {
                   return <p key={key}>{i}</p>;
               })}
@@ -132,7 +137,7 @@ console.log(content)
           <div id="section2">
             <div className="main-content">
               <h2>{content.section2Title}</h2>
-              <p className="sub">{content.section2Subheading}</p>
+              {/* <p className="sub">{content.section2Subheading}</p> */}
               {content.section2Content.split("\n").map((i,key) => {
                   return <p key={key}>{i}</p>;
               })}
@@ -142,12 +147,25 @@ console.log(content)
           <div id="section3">
             <div className="main-content">
               <h2>{content.section3Title}</h2>
-              <p className="sub">{content.section3Subheading}</p>
+              {/* <p className="sub">{content.section3Subheading}</p> */}
               {content.section3Content.split("\n").map((i,key) => {
                   return <p key={key}>{i}</p>;
               })}
             </div>
             <GatsbyImage className="main-image" image={getImage(content.section3Image.gatsbyImageData)} alt={content.section3Image.alt} placeholder="blur"/>
+          </div>
+          <div id="section4">
+            <div className="main-content">
+              <h2>{content.section4Title}</h2>
+              {/* <p className="sub">{content.section3Subheading}</p> */}
+              {content.section4Content.split("\n").map((i,key) => {
+                  return <p key={key}>{i}</p>;
+              })}
+            </div>
+            {content.section4Image.map((image, i)=>(
+              <GatsbyImage className="main-image" image={getImage(image.gatsbyImageData)} alt={image.alt} placeholder="blur"/>
+            ))}
+            
           </div>
         </Wrapper>
     </Layout>
