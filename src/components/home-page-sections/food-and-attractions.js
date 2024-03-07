@@ -61,6 +61,7 @@ hr {
     }
   }
   .main-image {
+    border-radius: 5px;
     transition: .5s;
     opacity: 0;
     position: absolute;

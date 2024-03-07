@@ -9,14 +9,15 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-padding: 100px 0;
+padding: 40px 0 30px 0;
 background-color: #535d41;
 h2 {
   text-align: center;
   font-size: 40px;
   color: white;
   // padding-top: 60px;
-  // margin-top: 0;
+  margin-top: 0px;
+  margin-bottom: 20px;
 }
 .properties {
   display: flex;
@@ -68,7 +69,7 @@ h2 {
   }
   
   .main-image {
-    height: 420px;
+    height: 340px;
     width: 100%;
     transition: .3s;
     // background-color: salmon;

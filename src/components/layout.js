@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "@emotion/styled"
 import Navbar from "./navbar2"
-import Footer from "./footer"
+import Footer from "./footer2"
 
 const Wrapper = styled.div`
 overflow: hidden;
