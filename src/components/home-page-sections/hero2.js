@@ -15,6 +15,7 @@ box-sizing: border-box;
 overflow: hidden;
 // padding-top: 100px;
 .background-image {
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     filter: brightness(30%);
     border-radius: 10px;
     height: 80vh;
@@ -22,7 +23,6 @@ overflow: hidden;
     width: 90vw;
     margin: 50px auto 0 auto;
     padding: 0;
-    
     object-fit: cover;
 }
 
