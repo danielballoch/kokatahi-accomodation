@@ -1,63 +1,67 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+import {Swiper, SwiperSlide } from "swiper/react"
 import Carousel from "nuka-carousel"
 import { GatsbyImage, getImage} from "gatsby-plugin-image"
 import styled from "@emotion/styled";
 
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/navigation';
+import 'swiper/css/thumbs';
+import '../../swiper-styles.css';
+
+import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
+
 const Wrapper = styled.div`
-padding-top: 100px;
+display: flex;
+flex-direction: column;
+justify-content: center;    
+width: 1041px;
+// height: 100%;
+.swiper-button-next {
+
+}
 .main-image {
-    height: 65vh;
-    width: 60vw;
-    margin: auto;
-}
-.paging-dot {
-    fill: white;
-}
-img {
-    // border-radius: 15px;
-}
-.slider-container {
-    width: 60vw;
-    margin: auto;
-}
-.slider-control-bottomcenter {
-    div {
-        top: 20px!important;
-    }
-}
-@media(max-width: 1500px){
-    .main-image {
-        height: 65vh;
-        width: 95vw;
-        margin: auto;
-    }
-    .slider-container {
-        width: 95vw;
-        margin: auto;
-    }
-}
-@media(max-width: 600px){
-    padding-top: 120px;
-    .main-image {
-        height: 40vh;
-        width: 95vw;
-        margin: auto;
-    }
-    .slider-container {
-        width: 95vw;
-        margin: auto;
-    }
+    width: 1041px;
+    height: 641px;
 }
 `
 
-export default function Slider({images}) {
+
+
+export default ({images}) => {
+    const [thumbsSwiper, setThumbsSwiper] = useState(null);
     return (
-      <Wrapper>
-        <Carousel wrapAround={true}>
-            {images.map((image, i) => (
-                    <GatsbyImage className="main-image" image={getImage(image.gatsbyImageData)} alt={image.alt} placeholder="blur"/>
+        <Wrapper>
+      <Swiper
+      style={{
+        '--swiper-navigation-color': '#fff',
+        '--swiper-pagination-color': '#fff',
+      }}
+      loop={true}
+      spaceBetween={10}
+      navigation={true}
+      thumbs={{ swiper: thumbsSwiper }}
+      modules={[FreeMode, Navigation, Thumbs]}
+      >
+        {images.map((image, i) => (
+                    <SwiperSlide><GatsbyImage className="main-image" image={getImage(image.gatsbyImageData)} alt={image.alt} placeholder="blur"/></SwiperSlide>
             ))}
-        </Carousel>
+      </Swiper>
+      <Swiper
+        onSwiper={setThumbsSwiper}
+        loop={false}
+        spaceBetween={10}
+        slidesPerView={8}
+        freeMode={true}
+        watchSlidesProgress={true}
+        modules={[FreeMode, Navigation, Thumbs]}
+        className="mySwiper"
+      >
+         {images.map((image, i) => (
+                    <SwiperSlide><GatsbyImage image={getImage(image.gatsbyImageData)} alt={image.alt} placeholder="blur"/></SwiperSlide>
+            ))}
+      </Swiper>
       </Wrapper>
     );
-}
+  };

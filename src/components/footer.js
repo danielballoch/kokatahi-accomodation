@@ -21,7 +21,7 @@ h2 {
     font-size: 50px;
     margin: 30px auto 10px auto;
     span {
-        color: red;
+        // color: red;
     }
 }
 a {
@@ -44,6 +44,7 @@ a {
         flex-direction: row;
         a {
             font-size: 18px;
+            margin: 10px 15px;
             
         }
     }
@@ -51,6 +52,9 @@ a {
 .bottom-footer {
     padding-bottom: 10px;
     margin-top: 80px;
+    a {
+        margin: 15px;
+    }
 }
 @media(max-width: 700px){
     h2 {

@@ -4,29 +4,39 @@ import { StructuredText } from 'react-datocms';
 import { GatsbyImage, getImage} from "gatsby-plugin-image"
 
 const Wrapper = styled.div`
-margin-top: 100px;
-min-height: 100vh;
+margin-top: 50px;
+// min-height: 100vh;
 width: 100%;
 .main {
     display: flex;
-    max-width: 980px;
+    align-items: center;;
+    width: fit-content;
+    // max-width: 980px;
     margin: auto; 
 }
 .content-left {
-    width: 60%;
+    width: 560px;
+    height: fit-content;
     padding: 20px;
-    margin-right: 20px;
+    margin-right: 80px;
     // border: solid 1px rgba(14, 30, 37, 0.12);
     // border-right: solid 1px rgba(14, 30, 37, 0.12);
     // box-shadow: 10px 0 5px -4px rgba(14, 30, 37, 0.12);
     // box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    h2 {
+        font-size: 30px;
+    }
 }
 .content-right {
-    width: 40%;
+    color: white;
+    width: 440px!important;
+    box-sizing: border-box;
+    background-color: #403d3d;
+    // width: 40%;
     border: solid 1px rgba(14, 30, 37, 0.12);
     // box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     .host-text {
-        padding: 20px;
+        padding: 30px;
     }
 }
 @media(max-width: 1000px){

@@ -4,36 +4,23 @@ import ImageSlider from "./image-slider"
 import ImageGallery from "./react-image-slider"
 
 const Wrapper = styled.div`
+padding-top: 120px;
+padding-bottom: 4px;
 background-color: black;
-min-height: 100vh;
-width: 100%;
-.content-box {
+.gallery-wrapper {
+    // height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
-    position: absolute;
-    top: calc(50vh + 250px + 20px);
-    width: 900px;
-    left: calc(50vw - 450px);
-    h1 {
-        font-size: 20px;
-        width: fit-content;
-        flex-shrink:0;
-        margin-right: 20px;
-    }
-    p {
-        // width: 80%;
-        font-size: 14px;
-    }
 }
 .features-box {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 170px;
+    margin-top: 100px;
     height: 300px;
     width: 100%;
-    background: linear-gradient(180deg, black 50%, white 50%);
+    background: linear-gradient(180deg, black 50%, #eeeeee 50%);
     .features {
         display: flex;
         flex-wrap: wrap;
@@ -50,19 +37,7 @@ width: 100%;
         
     }
 }
-@media(max-width: 950px){
-    .content-box {
-        flex-direction: column;
-        width: 90vw;
-        margin: 0px auto 0 auto;
-        padding: 0;
-        left: 5vw;
-        text-align: center;
-        h1 {
-            margin-right: 0;
-        }
-    }
-}
+
 @media(max-width: 600px){
     .content-box {
         top: 60vh;
@@ -86,13 +61,10 @@ export default function PropertyHero({images, title, blurb}){
     console.log(title, blurb)
     return(
         <Wrapper>
+            <div className="gallery-wrapper">
             <ImageGallery images={images}/>
-            {/* <ImageSlider images={images}/> */}
-            {/* <div className="content-box">
-                <h1>{title}</h1>
-                <p>{blurb}</p>
-            </div> */}
-            <div className="features-box">
+            </div>
+            {/* <div className="features-box">
                 <div className="features">
                     <span>4 Rooms</span>
                     <span>2 Bathrooms</span>
@@ -103,7 +75,7 @@ export default function PropertyHero({images, title, blurb}){
                     <span>Wi-Fi</span>
                     <span>Ample Parking</span>
                 </div>
-            </div>
+            </div> */}
             
         </Wrapper>
     )

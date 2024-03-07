@@ -301,7 +301,7 @@ export default function BookingForm({bookedDates}){
                             <p>Thank you for your message, we'll be in touch soon.</p>
                         </div>
                     </div>
-                    <h2>Booking Form</h2>
+                    {/* <h2>Booking Form</h2> */}
                     <label htmlFor="name">Name</label>
                     <input
                         id="name"

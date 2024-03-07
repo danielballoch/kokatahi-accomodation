@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "@emotion/styled"
-import Navbar from "./navbar"
+import Navbar from "./navbar2"
 import Footer from "./footer"
 
 const Wrapper = styled.div`

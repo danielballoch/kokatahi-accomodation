@@ -5,18 +5,30 @@ import Calendar from "react-calendar"
 import { isWithinInterval } from "date-fns";
 
 const Wrapper = styled.div`
-margin-top: 0px;
-min-height: 100vh;
+background-color: #403d3d;
+// border-top: solid 1px rgba(14, 30, 37, 0.12)!important;
+padding: 50px 0 100px 0;
+margin-top: 50px;
+// min-height: 100vh;
 width: 100%;
 .main {
     display: flex;
-    max-width: 980px;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1080px;
     margin: auto; 
 }
 .content-left {
-    width: 70%;
-    padding: 20px;
+    width: 600px;
+    // width: 70%;
+    // padding: 20px;
     margin-right: 20px;
+    h3 {
+        font-size: 26px;
+        text-align: center;
+        color: white;
+        margin-bottom: 40px;
+    }
     .react-calendar {
         width: unset!important;
         border: solid 1px rgba(14, 30, 37, 0.12)!important;
@@ -28,7 +40,8 @@ width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 40px 0;
+        padding: 40px 0 20px;
+        color: white;
     }
     .key-item {
         display: flex;
@@ -53,7 +66,11 @@ width: 100%;
     }
 }
 .content-right {
-    width: 50%;
+    background-color: #f8f8f8!important;
+    box-sizing: border-box;
+    width: 400px;
+    // margin: 20px;
+    // width: 50%;
     border: solid 1px rgba(14, 30, 37, 0.12);
     // box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     .host-text {
@@ -128,6 +145,7 @@ export default function MainContent({datesUnavailable}){
         <Wrapper>
             <div className="main">
                 <div className="content-left">
+                <h3>Reserve Your Holiday Accomodation Today!</h3>
                 <Calendar minDate={new Date()} activeStartDate={null} tileDisabled={tileDisabled}/>
                     <div className="key">
                         <span className="key-item"><span className="box today"/> = Today</span>

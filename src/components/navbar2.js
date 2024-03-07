@@ -2,7 +2,7 @@ import React, {useState} from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
 import { StaticImage } from 'gatsby-plugin-image'
-import Hamburger from "../components/hamburger"
+import Hamburger from "./hamburger"
 
 const Wrapper = styled.header`
 display: flex;
@@ -11,16 +11,17 @@ justify-content: center;
 width: 100vw;
 // height: 100px;
 .wrapper {
+    padding-top: 40px;
     z-index: 500;
     position: absolute;
-    width: 100vw;
+    // width: 100vw;
     max-width: 1020px;
     display: flex;
     flex-direction: row;
     justify-content: right;
     align-items: center;
     align-content: center;
-    height: 60px;
+    // height: 60px;
     margin: 10px auto;
     .logo {
         margin-right: auto;
@@ -102,7 +103,7 @@ width: 100vw;
     .nav-middle {
         a {
             padding: 15px 25px;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 400; 
         }
         .arrow {
@@ -201,15 +202,11 @@ export default function Navbar({contact, invert, location}) {
     const [menu, updateMenu] = useState(false);
     const [toggle, updateToggle] = useState(false);
     return (
-    <Wrapper>
+    <Wrapper id="top">
             <div className={menu? "wrapper fixed" : "wrapper"}>
-                <Link to="/" className={invert? "logo invert-logo" : "logo"}>
-                    {/* <StaticImage alt="Adult and junior riders climbing over gear on trials bikes" placeholder="blurred" className="nav-logo" src="../images/moto-school-logo.png"/> */}
-                    <span>Kokatahi </span>Accomodation
-                </Link> 
                 <div className={invert? "nav-middle invert" : "nav-middle" }>
                     <Link to="/">Home</Link>
-                    <Link to="/accomodation">Accomodation</Link>
+                    <Link to="/accomodation">Our Stay Options</Link>
                     {/* <Link to="/about-hokitika">About Hokitika</Link> */}
                     <Link to="/food-and-attractions">Food & Attractions</Link>
                     <Link to="/support">Support</Link>
