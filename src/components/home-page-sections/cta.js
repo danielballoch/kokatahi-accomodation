@@ -1,8 +1,10 @@
-import React, { useState } from "react"
+import React, { useRef } from "react"
 import styled from "@emotion/styled"
-import { GatsbyImage, getImage} from "gatsby-plugin-image"
-import { StaticImage } from "gatsby-plugin-image"
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Button from "../button"
+
 
 const Wrapper = styled.div`
 display: grid;
@@ -14,6 +16,7 @@ height: 300px;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(rgba(83, 93, 65, 0.5), rgba(100, 112, 78, 1));
   h2 {
       color: white;
       font-size: 30px;
@@ -28,9 +31,25 @@ height: 300px;
 `
 
 export default function CTA(){
+  const cta = useRef();
+  useGSAP(
+    () => {
+        let b1 = "linear-gradient(rgba(83, 93, 65, 0.5), rgba(100, 112, 78, 1))"
+        let b2 = "linear-gradient(rgba(83, 93, 65, 0), rgba(100, 112, 78, 0))"
+        gsap.to(".ani-content", {
+          background: "linear-gradient(rgba(83, 93, 65, 0), rgba(100, 112, 78, 0))",
+          scrollTrigger: {
+                trigger: ".ani-content",
+                start: 'top center',
+                end: 'bottom 50%',
+                scrub: true,
+          }
+        });
+      }
+  )
   return(
-    <Wrapper>
-        <div className="content">
+    <Wrapper ref={cta}>
+        <div className="content ani-content">
           <h2>Get Your West Coast Trip Sorted!</h2>
           <Button buttonText={"View All Stay Options"} buttonLink={"/accomodation#top"}/>
         </div>
@@ -46,7 +65,7 @@ export default function CTA(){
                   <rect width="1536" height="300" fill="#ffffff"></rect>
               </mask>
           </defs>
-      </svg>
+        </svg>
       </div>
     </Wrapper>
   )
