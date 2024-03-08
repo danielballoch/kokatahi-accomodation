@@ -6,7 +6,10 @@ import { StaticImage } from "gatsby-plugin-image"
 
 const Wrapper = styled.div`
 display: flex;
+height: 100vh;
+min-height: 720px;
 .content-wrapper {
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,7 +53,7 @@ display: flex;
     // overflow: scroll;
     background-color: grey;
     width: 50%;
-    height: 720px;
+    height: 100%;
     overflow: clip;
     .track {
         display: flex;
@@ -58,7 +61,7 @@ display: flex;
     }
     img {
         width: 100%;
-        height: 720px;
+        height: 100%;
         background-size: cover!important;
     }
     .right {

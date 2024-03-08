@@ -5,9 +5,9 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const Wrapper = styled.div`
 height: 100vh;
-min-height: 960px;
+min-height: 720px;
 width: 100%;
-// background-color: white; 
+// background-color: black; 
 display: flex;
 flex-direciton: column;
 flex-direction: center;
