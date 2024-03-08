@@ -99,14 +99,14 @@ export default function Footer() {
             </div>
             <div className="nav">
                     <h3>Navigate</h3>
-                   <Link to="/accomodation">Accomodation</Link>
+                   <Link to="/accomodation#top">Accomodation</Link>
                    <Link to="/food-and-attractions">Food & Attractions</Link>
                    <Link to="/about-hokitika">About Hokitika</Link>
                    <Link to="/">Homepage</Link>
             </div>
             <div className="nav">
             <h3>Get Help</h3>
-                <Link to="/terms-and-conditions">Terms and Conditions</Link>
+                <Link to="/terms-and-conditions#top">Terms and Conditions</Link>
                 <Link to="/support">Support</Link>
             </div>
         </div>
