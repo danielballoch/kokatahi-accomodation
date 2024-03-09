@@ -28,6 +28,30 @@ height: 300px;
     width: 100%;
   }
 }
+@media(max-width: 900px){
+    box-sizing: border-box;
+    height: fit-content;
+    height: 500px;
+  .content {
+    height: 100%;
+    text-align: center;
+    flex-direction: column;
+    h2 {
+      margin: 0 10px;
+    }
+    button {
+      margin: 40px 10px;
+      height: 84px;
+      padding: 18px 40px;
+    }
+  }
+  .background {
+    height: 100%;
+    svg {
+      height: 100%;
+    }
+  }
+}
 `
 
 export default function CTA(){

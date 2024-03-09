@@ -79,7 +79,7 @@ hr {
   display: none!important;
 }
 @media(max-width: 1200px){
-  margin-top: 200px;
+  padding: 200px 0;
   height: unset;
   .main-image {
     display: none;
@@ -92,13 +92,17 @@ hr {
     height: 300px;
   }
   .content-item {
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 50px 0;
     p {
       font-weight: 600;
-      margin-top: 80px;
+      // margin-bottom: 80px;
       font-size: 22px;
     }
   }
   .main-button {
+    margin-top: 0!important;
     margin: auto;
     padding: 20px 0!important;
     width: 100%;
@@ -106,6 +110,7 @@ hr {
   }
   .content {
     width: 90vw!important;
+    margin: 0!important;
     max-width: 600px;
     padding: 0!important;
   }
