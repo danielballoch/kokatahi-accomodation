@@ -1,12 +1,13 @@
 import React from "react"
 import Layout from "../components/layout"
 import styled from "@emotion/styled"
-import StayOptions from "../components/stay-options"
+import StayOptions from "../components/stay-options2"
 import SEO from "../components/seo"
 
 
 const Wrapper = styled.div`
 margin-top: 100px;
+background-color: #535d41!important;
 `
 
 export default function Accomodation(){

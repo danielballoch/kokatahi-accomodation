@@ -69,14 +69,28 @@ a {
         margin: 10px 15px;
     }
 }
-@media(max-width: 700px){
-    h2 {
-        text-align: center;
+@media(max-width: 800px){
+    // h2 {
+    //     text-align: center;
+    // }
+    .footer-content {
+        flex-direction: column !important;
+    }
+    .logo-wrap {
+        margin-bottom: 20px;
     }
     .nav {
-        flex-direction: column !important;
-        align-items: center;
+        margin: 20px 60px;
+        padding: unset!important;
+        // padding-left: 60px!important;
+        box-sizing: border-box;
+        width: 69%;
+        max-width: 380px;
+        // align-items: center;
         margin-bottom: 50px;
+        h3, a {
+            width: fit-content;
+        }
     }
 }
 @media(max-width: 460px){
