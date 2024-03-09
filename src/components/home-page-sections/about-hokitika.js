@@ -114,6 +114,13 @@ min-height: 720px;
             box-sizing: border-box;
         }
     }
+    .control-wrapper {
+        left: unset!important;
+        right: 10%!important;
+        button {
+            padding: 2px;
+        }
+    }
 }
 `
 

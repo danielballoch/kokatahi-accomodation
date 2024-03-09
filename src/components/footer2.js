@@ -95,6 +95,7 @@ a {
 }
 @media(max-width: 460px){
     .bottom-footer {
+        padding-top: 10px;
         display: flex;
         text-align: center;
         flex-direction: column;
