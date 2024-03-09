@@ -39,15 +39,11 @@ width: 100vw;
     .nav-middle {
         // margin-right: 25px;
     }
-    @media(max-width: 1080px) {
-        justify-content: space-between;
-        a {
-        margin: 0 0 0 40px;
-        }
-        .menu {
-            display: block!important;
-        }
-        .contact-us {
+    @media(max-width: 660px) {
+        align-items: flex-end;
+        width: 100%;
+        padding-top: 0!important;
+        .nav-middle {
             display: none;
         }
         .nav-logo {
@@ -111,9 +107,9 @@ width: 100vw;
             /* padding:0 5px; */
             transition: .3s;
         }
-        @media(max-width: 1080px) {
-            display: none;
-        }
+        // @media(max-width: 1080px) {
+        //     display: none;
+        // }
     }
     .invert {
         a {
@@ -211,14 +207,12 @@ export default function Navbar({contact, invert, location}) {
                     <Link to="/food-and-attractions">Food & Attractions</Link>
                     <Link to="/support">Support</Link>
                 </div>
-                {/* <Link className="contact-us" to="/contact">Contact Us</Link> */}
-                {/* <button className="menu" onClick={() => updateMenu(!menu)}>Menu</button> */}
                 <Hamburger invert={invert} toggle={toggle} clickFunction={() => {updateMenu(!menu); updateToggle(!toggle)}}/>
                 <div className={menu ? "side-drawer" : "hide"}>
                     <Link  onClick={() => { if (location === "/"){updateMenu(!menu);} updateToggle(!toggle)}} to="/">Home</Link>
                     <Link  onClick={() => { if (location === "/accomodation"){updateMenu(!menu);} updateToggle(!toggle)}} to="/accomodation">Accomodation</Link>
-                    <Link onClick={() => { if (location === "/about-hokitika"){updateMenu(!menu);} updateToggle(!toggle)}} to="/about-hokitika">About Hokitika</Link>
                     <Link onClick={() => { if (location === "/food-and-attractions"){updateMenu(!menu);} updateToggle(!toggle)}} to="/food-and-attractions">Food & Attractions</Link>
+                    <Link onClick={() => { if (location === "/about-hokitika"){updateMenu(!menu);} updateToggle(!toggle)}} to="/about-hokitika">About Hokitika</Link>
                     <Link onClick={() => { if (location === "/support"){updateMenu(!menu); updateToggle(!toggle)}}} to="/support">Support</Link>
                 </div>
             </div>

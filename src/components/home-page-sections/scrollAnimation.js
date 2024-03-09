@@ -2,9 +2,9 @@ import React from "react"
 import styled from '@emotion/styled';
 
 const ScrollContainer = styled.div`
-@media (max-width: 980px){
-    display: none !important;
-}
+// @media (max-width: 980px){
+//     display: none !important;
+// }
 width: 60px;
 // height: 108px;
 margin-top: -54px;

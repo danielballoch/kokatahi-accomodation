@@ -57,14 +57,13 @@ overflow: hidden;
         font-size: 18px;
     }
 }
-@media(max-width: 1000px){
-    .main-content {
-        padding-right: 0; 
+@media(max-width: 710px){
+    .content-wrapper {
+        width: 90vw;
     }
-}
-@media(max-width: 640px){
     .main-content {
-        width: 95%;
+        transform: scale(1);
+        width: 90vw;
         padding: 0px;
         box-sizing: border-box;
         h1 {

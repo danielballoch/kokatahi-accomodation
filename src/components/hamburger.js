@@ -55,7 +55,7 @@ body {
   .invert .line {
     stroke: black;
   }
-  @media(max-width: 1080px) {
+  @media(max-width: 660px) {
     display: block;
   }
 `
