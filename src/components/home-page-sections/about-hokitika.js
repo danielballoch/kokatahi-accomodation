@@ -89,6 +89,32 @@ min-height: 720px;
         }
     }
 }
+@media(max-width:1240px){
+.content {
+    max-width: 550px;
+    width: 90%;
+}
+}
+@media(max-width: 880px){
+    height: auto;
+    padding-bottom: 100px;
+    flex-direction: column-reverse;
+    .image-wrapper, .content-wrapper {
+        width: 100%;
+    }
+    .content-wrapper {
+        padding: 50px 0;
+        text-align: center;
+        h2 {
+            font-size: 36px;
+        }
+        .main-button {
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+        }
+    }
+}
 `
 
 export default function AboutHokitika(){
