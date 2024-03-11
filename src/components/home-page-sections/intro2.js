@@ -90,7 +90,7 @@ export default function Intro(){
         <Wrapper ref={textbox}>
             <div className="intro-ani">
                 <p>       
-                <div className="text">We’re a 10 minute</div>
+                <div className="text">We’re a 15 minute</div>
                 <div className="text">drive from Hokitika</div>
                 <div className="text">and offer a peaceful,</div>
                 <div className="text">family friendly space</div>
