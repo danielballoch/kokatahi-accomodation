@@ -30,6 +30,7 @@ h1 {
       font-size: 24px;
       font-weight: 300;
     }
+  
     .main-button {
       display: inline-block;
       height: fit-content;
@@ -45,6 +46,9 @@ h1 {
     }
     .content-item {
         transition: .3s;
+        hr {
+          opacity: 0.3;
+        }
         :hover {
             cursor: pointer;
         }

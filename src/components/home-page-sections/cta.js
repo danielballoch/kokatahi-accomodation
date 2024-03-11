@@ -50,6 +50,8 @@ height: 300px;
 }
 `
 
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
 export default function CTA(){
   const cta = useRef();
   useGSAP(
