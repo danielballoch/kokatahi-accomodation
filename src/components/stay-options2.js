@@ -70,7 +70,7 @@ h2 {
   
   .main-image {
     height: 340px;
-    width: 100%;
+    width: 101%!important;
     transition: .3s;
     // background-color: salmon;
     .gatsby-image-wrapper {

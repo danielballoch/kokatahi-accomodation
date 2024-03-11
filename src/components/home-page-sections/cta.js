@@ -61,8 +61,6 @@ export default function CTA(){
   const cta = useRef();
   useGSAP(
     () => {
-        let b1 = "linear-gradient(rgba(83, 93, 65, 0.5), rgba(100, 112, 78, 1))"
-        let b2 = "linear-gradient(rgba(83, 93, 65, 0), rgba(100, 112, 78, 0))"
         gsap.to(".ani-content", {
           background: "linear-gradient(rgba(83, 93, 65, 0), rgba(100, 112, 78, 0))",
           scrollTrigger: {
