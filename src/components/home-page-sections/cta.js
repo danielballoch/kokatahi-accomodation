@@ -63,9 +63,10 @@ export default function CTA(){
           background: "linear-gradient(rgba(83, 93, 65, 0), rgba(100, 112, 78, 0))",
           scrollTrigger: {
                 trigger: ".ani-content",
-                start: 'top center',
-                end: 'bottom 50%',
+                start: '50% 70%',
+                end: 'bottom 70%',
                 scrub: true,
+                markers: true,
           }
         });
       }
