@@ -17,7 +17,8 @@ height: 300px;
   justify-content: center;
   align-items: center;
   // background: linear-gradient(to top, rgba(83, 93, 65, 0.5), rgba(100, 112, 78, 0.9));
-  background: linear-gradient(to top, rgba(83, 93, 65, 0), rgba(100, 112, 78, 0));
+  // background: linear-gradient(to top, rgba(83, 93, 65, 0), rgba(100, 112, 78, 0));
+  background: rgba(100, 112, 78, 0.7);
   button {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   }
@@ -58,7 +59,8 @@ export default function CTA(){
   useGSAP(
     () => {
         gsap.to(".content", {
-          background: "linear-gradient(to top, rgba(83, 93, 65, 0.5), rgba(100, 112, 78, 0.9))",
+          // background: "linear-gradient(to top, rgba(83, 93, 65, 0), rgba(100, 112, 78, 0))",
+          background: "rgba(100, 112, 78, 0)",
           // background: "linear-gradient(to top, rgba(83, 93, 65, 0), rgba(100, 112, 78, 0.5))",
           scrollTrigger: {
                 trigger: ".content",
