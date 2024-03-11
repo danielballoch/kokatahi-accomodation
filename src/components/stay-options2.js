@@ -73,6 +73,11 @@ h2 {
     width: 100%;
     transition: .3s;
     // background-color: salmon;
+    .gatsby-image-wrapper {
+      img {
+        width: 101%;
+      }
+    }
   }
   :hover {
     .view {
