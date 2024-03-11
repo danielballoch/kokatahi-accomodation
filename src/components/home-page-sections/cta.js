@@ -65,7 +65,6 @@ export default function CTA(){
                 start: 'top 70%',
                 end: 'bottom 70%',
                 scrub: true,
-                markers: true,
           }
         });
       },{ scope: cta}
