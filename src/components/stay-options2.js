@@ -49,7 +49,7 @@ h2 {
   }
   .view {
     font-weight: 600;
-    transform: rotate(-180deg) translateX(-100%);
+    transform: rotate(-180deg) translateX(-110%);
     transition: .3s;
     font-family: "open sans";
     border-radius: 0 5px 5px 0;
@@ -81,7 +81,7 @@ h2 {
   }
   :hover {
     .view {
-      transform: rotate(-180deg) translateX(-1%);
+      transform: rotate(-180deg) translateX(-5%);
     }
     .main-image {
       opacity: 0.8;
