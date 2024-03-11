@@ -1,9 +1,5 @@
 import React, { useRef } from "react"
 import styled from "@emotion/styled"
-import { useStaticQuery, graphql, Link } from "gatsby"
-// import { GatsbyImage, getImage} from "gatsby-plugin-image"
-import { StructuredText } from 'react-datocms';
-// import VideoSRC from "../images/kids-motoschool.mp4"
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'

@@ -16,7 +16,8 @@ height: 300px;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(rgba(83, 93, 65, 0.5), rgba(100, 112, 78, 1));
+  // background: linear-gradient(to top, rgba(83, 93, 65, 0.5), rgba(100, 112, 78, 0.9));
+  background: linear-gradient(to top, rgba(83, 93, 65, 0), rgba(100, 112, 78, 0));
   button {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   }
@@ -57,10 +58,11 @@ export default function CTA(){
   useGSAP(
     () => {
         gsap.to(".content", {
-          background: "linear-gradient(rgba(83, 93, 65, 0), rgba(100, 112, 78, 0))",
+          background: "linear-gradient(to top, rgba(83, 93, 65, 0.5), rgba(100, 112, 78, 0.9))",
+          // background: "linear-gradient(to top, rgba(83, 93, 65, 0), rgba(100, 112, 78, 0.5))",
           scrollTrigger: {
                 trigger: ".content",
-                start: '50% 70%',
+                start: 'top 70%',
                 end: 'bottom 70%',
                 scrub: true,
                 markers: true,
