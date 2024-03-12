@@ -4,6 +4,7 @@ import styled from "@emotion/styled"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import FoodAttractionsFull from "../components/food-attraction-full"
 import SEO from "../components/seo"
+import CTA from "../components/home-page-sections/cta"
 
 const FoodAttractionsIntro = styled.div`
 background-color: #535d41;
@@ -98,6 +99,7 @@ let dining = data.allDatoCmsDiningCusineItem.nodes
         </FoodAttractionsIntro>
         <FoodAttractionsFull id="dining-and-cuisine" attractions={dining} title={data.datoCmsHomePage.localDiningCuisineTitle}/>
         <FoodAttractionsFull id="attractions-and-outdoors" attractions={attractions} title={data.datoCmsHomePage.attractionsOutdoorsTitle}/>
+        <CTA/>
     </Layout>
   )
 }
