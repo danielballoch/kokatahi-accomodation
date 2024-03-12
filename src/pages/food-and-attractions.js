@@ -6,20 +6,29 @@ import FoodAttractionsFull from "../components/food-attraction-full"
 import SEO from "../components/seo"
 
 const FoodAttractionsIntro = styled.div`
-padding-top: 200px;
+background-color: #535d41;
+color: white;
+border-bottom: 20px solid #5d6849;
+padding-top: 100px;
 padding-bottom: 50px;
 padding-right: 400px;
-margin: auto;
-max-width: 800px;
-width: 90vw;
+margin: 120px auto 0;
+div {
+  margin: 50px auto;
+  max-width: 800px;
+  width: 90vw;
+}
 h1 {
-  font-weight: 300;
+  margin: 0;
+  font-size: 38px;
+  font-weight: 600;
 }
 h1, p {
   padding-left: 60px;
 }
 p {
-  padding-right: 200px;
+  font-size: 16px;
+  padding-right: 100px;
 }
 @media(max-width:1220px){
 display: flex;
@@ -27,7 +36,7 @@ flex-direction: column;
 justify-content: flex-start;
 align-items: flex-start;
 padding-right: 0;
-margin-left: 5vw;
+// margin-left: 5vw;
 h1, p {
   padding-left: 0;
   margin: auto;
@@ -82,8 +91,10 @@ let dining = data.allDatoCmsDiningCusineItem.nodes
   return(
     <Layout invert={true}>
         <FoodAttractionsIntro>
-          <h1>Hokitika: The Beautiful Land of the West Coast</h1>
-          <p>There’s a variety of activities and attractions to keep you busy in the West Coast. Everything from great bars, cafes, and restaurants to historic sites, trails, lakes, hunting and fishing spots etc.</p>
+          <div>
+            <h1>Best of the West: Food & Activities</h1>
+            <p>There’s a variety of activities and attractions to keep you busy in the West Coast. Everything from great bars, cafes, and restaurants to historic sites, trails, lakes, hunting and fishing spots etc. Check out some of our favourites below.</p>
+          </div>
         </FoodAttractionsIntro>
         <FoodAttractionsFull id="dining-and-cuisine" attractions={dining} title={data.datoCmsHomePage.localDiningCuisineTitle}/>
         <FoodAttractionsFull id="attractions-and-outdoors" attractions={attractions} title={data.datoCmsHomePage.attractionsOutdoorsTitle}/>

@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 
 
 const Wrapper = styled.div`
-margin-top: 100px;
+margin-top: 120px;
 background-color: #535d41!important;
 `
 

@@ -4,7 +4,8 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const Wrapper = styled.div`
 height: fit-content;
-min-height: 960px;
+// min-height: 960px;
+padding: 50px 0;
 width: 100%;
 background-color: white; 
 display: flex;
@@ -18,17 +19,16 @@ h1 {
   max-width: 1200px;
   display: flex;
   // border: solid 1px black;
-
-  margin: auto;
+  margin: 0 auto;
   .content {
     padding: 60px;
     box-sizing: border-box;
     width: 600px;
     h2 {
       margin-top: 0;
-      margin-bottom: 70px;
-      font-size: 24px;
-      font-weight: 300;
+      // margin-bottom: 70px;
+      font-size: 26px;
+      font-weight: 600;
     }
   
     .main-button {
@@ -61,7 +61,7 @@ h1 {
   }
   .content-right {
     width: 600px;
-    min-height: 960px;
+    // min-height: 960px;
   }
 }
 .nav-menu {
