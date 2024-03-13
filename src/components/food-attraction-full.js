@@ -8,6 +8,7 @@ height: fit-content;
 padding: 50px 0;
 width: 100%;
 background-color: white; 
+// color: white;
 display: flex;
 flex-direciton: column;
 flex-direction: center;
@@ -19,11 +20,12 @@ h1 {
   max-width: 1200px;
   display: flex;
   // border: solid 1px black;
-  margin: 0 auto;
+  margin: 20px auto;
   .content {
-    padding: 60px;
+    padding: 0 60px;
     box-sizing: border-box;
     width: 600px;
+    // width: 500px;
     h2 {
       margin-top: 0;
       // margin-bottom: 70px;
@@ -55,8 +57,9 @@ h1 {
     }
   }
   .main-image {
+    border-radius: 5px;
     width: 600px;
-    height: 500px;
+    height: 400px;
     background-color: black;
   }
   .content-right {

@@ -62,7 +62,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
   const properties = [result.data.datoCmsStayOption1, result.data.datoCmsStayOption2, result.data.datoCmsStayOption3]
-  console.log(properties)
 //   Create blog posts pages
 //   But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
 //   `context` is available in the template as a prop and as a variable in GraphQL

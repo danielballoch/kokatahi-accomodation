@@ -7,6 +7,7 @@ import { StructuredText } from 'react-datocms';
 import SupportForm from "../components/support-form"
 
 const Wrapper = styled.div`
+background-color: #535D41;
 display: flex;
 flex-direction: column;
 width: 100%;
@@ -39,21 +40,23 @@ overflow: hidden;
 }
 `
 const Faq = styled.div`
-margin: 200px auto 0px auto;
+margin: 100px auto 100px auto;
 height: auto;
-color: black;
+color: white;
 display: flex;
 flex-direction: column;
 h1 {
-        font-size: 40px;
-        font-weight: 500;
-        color: #333;
-        padding-bottom: 10px;
-        margin-bottom: 0;
-        margin-top: 80px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+    padding-bottom: 10px;
+    // margin-bottom: 0;
+    margin-top: 80px;
 }
 .subheading {
-    max-width: 800px;
+    text-align: center;
+    max-width: 600px;
+    margin: auto;
     margin-bottom: 50px;
 }
 div {
@@ -63,21 +66,19 @@ div {
 }
 .toggle {
     max-height: 0px !important;
-    padding: 0px 40px;
+    // padding: 0px 40px;
     /* background-color: #f8f8f8; */
     overflow: hidden;
 }
 .answer {
+    display: grid;
+    grid-template-rows: 0fr;
+    justify-content: flex-start;
+    max-height: 400px;
     transition: max-height 200ms ease-in-out 0s;
     overflow: hidden;
-    margin: 10px 0;
-    border-left: 2px solid rgba(14, 30, 37, 0.12);
-    // max-height: 300px;
+    // margin: 10px 0;
     box-sizing: border-box;
-    p {
-        margin: 10px;
-    }
-    /* background-color: #f8f8f8; */
 }
 @media(max-width: 940px){
     width: 80%;
@@ -85,12 +86,15 @@ div {
 }
 `
 const ContentBox = styled.div`
+// border: solid white 3px;
+background-color: #74815B;
+padding: 20px;
 width: 800px;
 display: flex;
 flex-direction: row;
-margin-bottom: 10px;
-/* border-radius: 10px; */
-color: black;
+margin-bottom: 20px;
+border-radius: 10px;
+color: white;
 img {
     border-radius: 2px;
 }
@@ -115,23 +119,43 @@ h3 {
     /* align-items: center; */
     align-items: start;
 }
-.arrow {
-  margin-top: 5px;
-  transition: .2s;
-  margin-left: 20px;
-  height: 3px;
-  width: 3px;
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
+.button{
+    position: relative;
+    width: 30px;
+    height: 30px;
+
+    &:before,
+    &:after{
+        content: "";
+        position: absolute;
+        background-color: white;
+        transition: transform 0.25s ease-out;
+    }
+
+    /* Vertical line */
+    &:before{
+        top: 0;
+        left: 50%;
+        width: 4px;
+        height: 100%;
+        margin-left: -2px;
+    }
+
+    /* horizontal line */
+    &:after{
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        margin-top: -2px;
+    }
+    
 }
-.down {
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
+.open {
+    &:before{ transform: rotate(90deg); }
+    &:after{ transform: rotate(180deg); }
 }
+
 @media(max-width: 1000px){
     flex-direction: column;
     div {
@@ -149,7 +173,7 @@ const Content = ({question, answer,i}) => {
     return (
         <ContentBox  onClick={() => {setToggle(!toggle)}}>
             <div key={"question " + i}>
-                <h3><p className="question">{question}<span className={toggle ? "arrow" : "arrow down"}/></p></h3>
+                <h3><p className="question">{question}<div className={toggle ? "button" : "button open"}/></p></h3>
                 <div className={toggle ? "answer toggle" : "answer"}>
                 <StructuredText
                         data={answer.value}
@@ -172,19 +196,18 @@ const FAQ = (data) => {
     let Questions = data.data.allDatoCmsFaq.nodes;
     let c = data.data.datoCmsSupportPage
     return(
-        <Layout invert={true} location={data.location.pathname}>
+        <Layout location={data.location.pathname}>
             <Wrapper>
                 <Faq itemScope itemType="https://schema.org/FAQPage">
                   <h1>{c.title}</h1>
-                  <p className="subheading">{c.blurb}</p>  
+                  {/* <p className="subheading">{c.blurb}</p>   */}
                   {Questions.map((question, i) => (
                       <Content question={question.question} answer={question.answer} i={i}/>
                   ))}
                 </Faq>
-                <div className="contact-wrapper">
-                  {/* <GatsbyImage className="background-image" image={getImage(c.contactBackground.gatsbyImageData)} alt={c.contactBackground.alt} placeholder="blur"/> */}
+                {/* <div className="contact-wrapper">
                   <SupportForm/>
-                </div>
+                </div> */}
             </Wrapper>
         </Layout>
     )

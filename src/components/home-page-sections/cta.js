@@ -64,8 +64,8 @@ export default function CTA(){
           // background: "linear-gradient(to top, rgba(83, 93, 65, 0), rgba(100, 112, 78, 0.5))",
           scrollTrigger: {
                 trigger: ".content",
-                start: 'top 70%',
-                end: 'bottom 70%',
+                start: 'top 60%',
+                end: 'bottom 60%',
                 scrub: true,
           }
         });

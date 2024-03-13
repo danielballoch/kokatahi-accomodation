@@ -6,13 +6,15 @@ import SEO from "../components/seo"
 
 
 const Wrapper = styled.div`
-margin-top: 120px;
 background-color: #535d41!important;
+@media(max-height: 720px){
+  margin-top: 100px;
+}
 `
 
 export default function Accomodation(){
   return(
-    <Layout invert={true}>
+    <Layout>
         <Wrapper>
             <StayOptions/>
         </Wrapper>

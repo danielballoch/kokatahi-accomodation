@@ -8,6 +8,7 @@ const Wrapper = styled.div`
 display: flex;
 height: 100vh;
 min-height: 720px;
+background-color: #eee;
 .content-wrapper {
     height: 100%;
     display: flex;

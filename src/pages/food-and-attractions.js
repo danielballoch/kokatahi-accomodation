@@ -9,27 +9,29 @@ import CTA from "../components/home-page-sections/cta"
 const FoodAttractionsIntro = styled.div`
 background-color: #535d41;
 color: white;
-border-bottom: 20px solid #5d6849;
-padding-top: 100px;
-padding-bottom: 50px;
-padding-right: 400px;
-margin: 120px auto 0;
+display: flex;
+justify-content: center;
+// border-bottom: 20px solid #5d6849;
+// padding-top: 100px;
+// padding-bottom: 50px;
+// padding-right: 400px;
+// margin: 100px auto 0;
 div {
-  margin: 50px auto;
+  margin: 180px auto 50px auto;
   max-width: 800px;
   width: 90vw;
 }
 h1 {
   margin: 0;
-  font-size: 38px;
-  font-weight: 600;
+  font-size: 40px;
+  font-weight: 700;
 }
 h1, p {
-  padding-left: 60px;
+  text-align: center;
 }
 p {
   font-size: 16px;
-  padding-right: 100px;
+  padding-right: 50px;
 }
 @media(max-width:1220px){
 display: flex;
@@ -90,11 +92,11 @@ export default function AttractionsOutdoors(){
 let attractions = data.allDatoCmsAttractionOutdoorItem.nodes
 let dining = data.allDatoCmsDiningCusineItem.nodes
   return(
-    <Layout invert={true}>
+    <Layout>
         <FoodAttractionsIntro>
           <div>
             <h1>Best of the West: Food & Activities</h1>
-            <p>There’s a variety of activities and attractions to keep you busy in the West Coast. Everything from great bars, cafes, and restaurants to historic sites, trails, lakes, hunting and fishing spots etc. Check out some of our favourites below.</p>
+            {/* <p>There’s a variety of activities and attractions to keep you busy in the West Coast. Everything from great bars, cafes, and restaurants to historic sites, trails, lakes, hunting and fishing spots etc. Check out some of our favourites below.</p> */}
           </div>
         </FoodAttractionsIntro>
         <FoodAttractionsFull id="dining-and-cuisine" attractions={dining} title={data.datoCmsHomePage.localDiningCuisineTitle}/>

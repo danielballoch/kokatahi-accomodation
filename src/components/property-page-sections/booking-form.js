@@ -18,14 +18,15 @@ height: 100%;
 width: 100%;
 justify-content: center;
 align-items: center;
+border-radius: 10px;
 form {
+    border-radius: 10px;
     margin: auto;
     box-sizing: border-box;
     // width: 640px;
-    padding: 40px 40px;
+    padding: 40px 30px;
     // height: 600px;
     background-color: white;
-    border-radius: 2px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -75,6 +76,7 @@ form {
         }
     }
     .button-style {
+        // border-radius: 5px;
         margin-top: 20px;
         padding: 20px;
         background-color: #808080;
@@ -85,8 +87,8 @@ form {
         font-weight: 600;
         :hover {
             cursor: pointer;
-            background-color: #4a9c2d;
-            border: solid 1px #4a9c2d;
+            background-color: #535d41;
+            border: solid 1px #535d41;
         }
     }
     option:hover {
@@ -235,7 +237,7 @@ export default function BookingForm({bookedDates}){
     const [selectedDate, updateSelectedDate] = useState();
     const reRef = useRef();
     const [serverState, setServerState] = useState({formSent: false});
-    console.log("bookedDates2:", bookedDates)
+    // console.log("bookedDates2:", bookedDates)
 
     function tileDisabled({ date, view}) {
       // Add class to tiles in month view onlys
@@ -254,7 +256,7 @@ export default function BookingForm({bookedDates}){
 
       async function onSubmit(data){
         // const reRef = useRef<>();
-        console.log(data)
+        // console.log(data)
         const token = await reRef.current.executeAsync();
         reRef.current.reset();
 

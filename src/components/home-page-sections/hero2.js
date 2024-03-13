@@ -43,7 +43,7 @@ overflow: hidden;
     h1 {
         margin-top: 0;
         margin-bottom: 0;
-        font-size: 30px;
+        font-size: 40px;
         font-weight: 400px;
         color: white;
         text-align: center;

@@ -5,10 +5,9 @@ import Calendar from "react-calendar"
 import { isWithinInterval } from "date-fns";
 
 const Wrapper = styled.div`
-background-color: #403d3d;
+// background-color: #403d3d;
 // border-top: solid 1px rgba(14, 30, 37, 0.12)!important;
 padding: 50px 0 100px 0;
-margin-top: 50px;
 // min-height: 100vh;
 width: 100%;
 .main {
@@ -19,6 +18,8 @@ width: 100%;
     margin: auto; 
 }
 .content-left {
+
+    color: white;
     width: 600px;
     // width: 70%;
     // padding: 20px;
@@ -26,12 +27,18 @@ width: 100%;
     h3 {
         font-size: 26px;
         text-align: center;
-        color: white;
         margin-bottom: 40px;
     }
     .react-calendar {
+        border-radius: 10px;
         width: unset!important;
         border: solid 1px rgba(14, 30, 37, 0.12)!important;
+        .react-calendar__navigation__prev2-button {
+            border-radius: 10px 0 0 0;
+        }
+        .react-calendar__navigation__next2-button {
+            border-radius: 0 10px  0 0;
+        }
     }
     .react-calendar__viewContainer {
         pointer-events: none;
@@ -41,7 +48,6 @@ width: 100%;
         align-items: center;
         justify-content: center;
         padding: 40px 0 20px;
-        color: white;
     }
     .key-item {
         display: flex;
@@ -66,6 +72,7 @@ width: 100%;
     }
 }
 .content-right {
+    border-radius: 10px;
     background-color: #f8f8f8!important;
     box-sizing: border-box;
     width: 400px;
@@ -93,7 +100,6 @@ width: 100%;
     .content-left, .content-right {
         width: 90vw;
     }
-    margin-bottom: 200px; 
 }
 `
 
@@ -127,8 +133,8 @@ export default function MainContent({datesUnavailable}){
             //Format needs to be: new Date(2023, 11, 26);
             datesUnavailableRanges.push([new Date(Number(d[0]), Number(d[1])-1, Number(d[2])), new Date(Number(d2[0]), Number(d2[1])-1, Number(d2[2]))])
         }
-        console.log("initial",datesUnavailable)
-        console.log("ranges",datesUnavailableRanges)
+        // console.log("initial",datesUnavailable)
+        // console.log("ranges",datesUnavailableRanges)
         setBookedDates(datesUnavailableRanges);
     },[datesUnavailable])
 
@@ -140,7 +146,7 @@ export default function MainContent({datesUnavailable}){
       }
     }
 
-    console.log("bookedDates: ", bookedDates)
+    // console.log("bookedDates: ", bookedDates)
     return(
         <Wrapper>
             <div className="main">

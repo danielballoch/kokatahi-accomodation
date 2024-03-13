@@ -4,21 +4,26 @@ import { StructuredText } from 'react-datocms';
 import { GatsbyImage, getImage} from "gatsby-plugin-image"
 
 const Wrapper = styled.div`
-margin-top: 50px;
+padding: 50px 0;
 // min-height: 100vh;
 width: 100%;
+background-color: white;
+
 .main {
     display: flex;
+    flex-direction: column;
     align-items: center;;
     width: fit-content;
-    // max-width: 980px;
+    max-width: 980px;
     margin: auto; 
 }
 .content-left {
-    width: 560px;
+    border-radius: 10px 10px 0 0;
+    border: solid 1px rgba(14, 30, 37, 0.12);
+    // width: 560px;
     height: fit-content;
-    padding: 20px;
-    margin-right: 80px;
+    padding: 20px 40px;
+    // margin-right: 80px;
     // border: solid 1px rgba(14, 30, 37, 0.12);
     // border-right: solid 1px rgba(14, 30, 37, 0.12);
     // box-shadow: 10px 0 5px -4px rgba(14, 30, 37, 0.12);
@@ -28,15 +33,24 @@ width: 100%;
     }
 }
 .content-right {
-    color: white;
-    width: 440px!important;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: black;
     box-sizing: border-box;
-    background-color: #403d3d;
-    // width: 40%;
+    // background-color: #FAF9F6;
     border: solid 1px rgba(14, 30, 37, 0.12);
-    // box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    .img {
+        border-radius: 0 0 0 10px;
+        height: 300px;
+        width: 40%;
+    }
     .host-text {
-        padding: 30px;
+        box-sizing: border-box;
+        width: 60%;
+        padding: 20px 40px;
     }
 }
 @media(max-width: 1000px){
@@ -76,7 +90,7 @@ export default function MainContent({content, hostData}){
                     />
                 </div>
                 <div className="content-right">
-                    <GatsbyImage image={getImage(hostData.image.gatsbyImageData)} alt={hostData.image.alt} placeholder="blur"/>
+                    <GatsbyImage className="img" image={getImage(hostData.image.gatsbyImageData)} alt={hostData.image.alt} placeholder="blur"/>
                     <div className="host-text">
                         <StructuredText
                         data={hostData.content.value}

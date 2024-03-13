@@ -10,8 +10,19 @@ justify-content: center;
 // background-color: white;
 width: 100vw;
 // height: 100px;
+.invert {
+    background-color: rgba(255,255,255,.1)!important;
+}
 .wrapper {
-    padding-top: 40px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    background-color: rgba(0,0,0,.1);    
+    // background-color: #535d41;
+    // border-bottom: solid 3px rgba(0,0,0,0.3);
+    // padding-top: 40px;
+    height: 60px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
     z-index: 500;
     position: absolute;
     // width: 100vw;
@@ -22,7 +33,7 @@ width: 100vw;
     align-items: center;
     align-content: center;
     // height: 60px;
-    margin: 10px auto;
+    margin: 20px auto;
     .logo {
         margin-right: auto;
     }
@@ -97,6 +108,9 @@ width: 100vw;
         }
     }
     .nav-middle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         a {
             padding: 15px 25px;
             font-size: 16px;
@@ -111,11 +125,11 @@ width: 100vw;
         //     display: none;
         // }
     }
-    .invert {
-        a {
-            color: black!important;
-        }
-    }
+    // .invert {
+    //     a {
+    //         color: black!important;
+    //     }
+    // }
     .services-dropdown {
         display: none;
         /* display:flex; */
@@ -199,8 +213,8 @@ export default function Navbar({contact, invert, location}) {
     const [toggle, updateToggle] = useState(false);
     return (
     <Wrapper id="top">
-            <div className={menu? "wrapper fixed" : "wrapper"}>
-                <div className={invert? "nav-middle invert" : "nav-middle" }>
+            <div className={invert? "wrapper invert" : "wrapper"}>
+                <div className="nav-middle">
                     <Link to="/">Home</Link>
                     <Link to="/accomodation">Our Stay Options</Link>
                     {/* <Link to="/about-hokitika">About Hokitika</Link> */}

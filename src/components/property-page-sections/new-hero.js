@@ -14,6 +14,9 @@ background-color: black;
     justify-content: center;
     align-items: center;
 }
+.swiper {
+    border-radius: 5px;
+}
 .features-box {
     display: flex;
     flex-wrap: wrap;
@@ -58,7 +61,6 @@ background-color: black;
 
 
 export default function PropertyHero({images, title, blurb}){
-    console.log(title, blurb)
     return(
         <Wrapper>
             <div className="gallery-wrapper">
