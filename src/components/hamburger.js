@@ -4,7 +4,11 @@ import styled from "@emotion/styled"
 const Wrapper = styled.div`
 display: none;
 z-index: 600;
-margin: 0 20px 0 0;
+.active {
+  position: fixed;
+  right: 25px;
+  top: 10px;
+}
 body {
     align-items: center;
     display: flex;
@@ -55,7 +59,7 @@ body {
   .invert .line {
     stroke: black;
   }
-  @media(max-width: 660px) {
+  @media(max-width: 700px) {
     display: block;
   }
 `

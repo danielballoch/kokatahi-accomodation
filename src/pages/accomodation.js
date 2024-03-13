@@ -10,6 +10,9 @@ background-color: #535d41!important;
 @media(max-height: 720px){
   margin-top: 100px;
 }
+@media(max-width:1190px){
+  margin-top: 100px;
+}
 `
 
 export default function Accomodation(){

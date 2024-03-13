@@ -33,6 +33,9 @@ p {
   font-size: 16px;
   padding-right: 50px;
 }
+.nav-menu {
+  display: none;
+}
 @media(max-width:1220px){
 display: flex;
 flex-direction: column;
@@ -48,6 +51,18 @@ h1, p {
 p {
   padding-right: 0;
 }
+}
+.nav-menu {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  a {
+    color: white;
+    padding: 20px 10px;
+    background-color: black;
+    text-decoration: none;
+    margin: 0 10px 10px 0;
+  }
 }
 `
 
@@ -98,6 +113,10 @@ let dining = data.allDatoCmsDiningCusineItem.nodes
             <h1>Best of the West: Food & Activities</h1>
             {/* <p>There’s a variety of activities and attractions to keep you busy in the West Coast. Everything from great bars, cafes, and restaurants to historic sites, trails, lakes, hunting and fishing spots etc. Check out some of our favourites below.</p> */}
           </div>
+          <div className="nav-menu">
+              <a href={"#dining-and-cuisine"}>Dining & Cuisine</a>
+              <a href={"#attractions-and-outdoors"}>Attractions & Outdoors</a>
+            </div>
         </FoodAttractionsIntro>
         <FoodAttractionsFull id="dining-and-cuisine" attractions={dining} title={data.datoCmsHomePage.localDiningCuisineTitle}/>
         <FoodAttractionsFull id="attractions-and-outdoors" attractions={attractions} title={data.datoCmsHomePage.attractionsOutdoorsTitle}/>

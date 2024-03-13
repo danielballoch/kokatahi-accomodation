@@ -87,6 +87,7 @@ div {
 `
 const ContentBox = styled.div`
 // border: solid white 3px;
+box-sizing: border-box;
 background-color: #74815B;
 padding: 20px;
 width: 800px;
@@ -109,15 +110,16 @@ h3 {
     font-size: 20px;
     margin: 0;
     font-weight: 400;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    // align-items: start;
 }
 .question {
-    width: 100%;
-    display: flex;
+    width: 90%;
     margin: 0;
-    
-    justify-content: space-between;
-    /* align-items: center; */
-    align-items: start;
+    font-size: 18px;
 }
 .button{
     position: relative;
@@ -173,7 +175,7 @@ const Content = ({question, answer,i}) => {
     return (
         <ContentBox  onClick={() => {setToggle(!toggle)}}>
             <div key={"question " + i}>
-                <h3><p className="question">{question}<div className={toggle ? "button" : "button open"}/></p></h3>
+                <h3><p className="question">{question}</p><div className={toggle ? "button" : "button open"}/></h3>
                 <div className={toggle ? "answer toggle" : "answer"}>
                 <StructuredText
                         data={answer.value}
