@@ -74,14 +74,14 @@ div {
     display: grid;
     grid-template-rows: 0fr;
     justify-content: flex-start;
-    max-height: 400px;
+    max-height: 800px;
     transition: max-height 200ms ease-in-out 0s;
     overflow: hidden;
     // margin: 10px 0;
     box-sizing: border-box;
 }
 @media(max-width: 940px){
-    width: 80%;
+    width: 90%;
     margin: 100px auto 20px;
 }
 `
@@ -117,7 +117,7 @@ h3 {
     // align-items: start;
 }
 .question {
-    width: 90%;
+    width: 88%;
     margin: 0;
     font-size: 18px;
 }
