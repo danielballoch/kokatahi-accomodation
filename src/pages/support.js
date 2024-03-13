@@ -5,6 +5,7 @@ import { graphql } from "gatsby"
 import SEO from "../components/seo"
 import { StructuredText } from 'react-datocms';
 import SupportForm from "../components/support-form"
+import CTA from "../components/home-page-sections/cta"
 
 const Wrapper = styled.div`
 background-color: #535D41;
@@ -16,7 +17,8 @@ overflow: hidden;
   display: grid;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  padding: 80px 0 100px 0;
+//   height: 100vh;
   width: 100vw;
   box-sizing: border-box;
   ::before {
@@ -40,7 +42,7 @@ overflow: hidden;
 }
 `
 const Faq = styled.div`
-margin: 100px auto 100px auto;
+margin: 100px auto 0 auto;
 height: auto;
 color: white;
 display: flex;
@@ -50,12 +52,12 @@ h1 {
     font-size: 40px;
     font-weight: 700;
     padding-bottom: 10px;
-    // margin-bottom: 0;
+    margin-bottom: 0;
     margin-top: 80px;
 }
 .subheading {
     text-align: center;
-    max-width: 600px;
+    max-width: 700px;
     margin: auto;
     margin-bottom: 50px;
 }
@@ -202,14 +204,15 @@ const FAQ = (data) => {
             <Wrapper>
                 <Faq itemScope itemType="https://schema.org/FAQPage">
                   <h1>{c.title}</h1>
-                  {/* <p className="subheading">{c.blurb}</p>   */}
+                  <p className="subheading">{c.blurb}</p>  
                   {Questions.map((question, i) => (
                       <Content question={question.question} answer={question.answer} i={i}/>
                   ))}
                 </Faq>
-                {/* <div className="contact-wrapper">
+                <div className="contact-wrapper">
                   <SupportForm/>
-                </div> */}
+                </div>
+                <CTA/>
             </Wrapper>
         </Layout>
     )

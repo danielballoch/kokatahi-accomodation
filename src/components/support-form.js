@@ -15,23 +15,19 @@ width: 100%;
 justify-content: center;
 align-items: center;
 form {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     margin: auto;
     box-sizing: border-box;
     width: 920px;
     padding: 40px 60px;
     height: 600px;
     background-color: white;
-    border-radius: 2px;
+    border: 5px solid #74815b;
+    // color: white;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    .react-date-picker__inputGroup__input {
-        min-width: 1.2em!important;
-    }
-    .react-calendar__tile--active, .react-calendar__tile:enabled:hover {
-        background-color: #4a9c2d!important;
-        color: white !important;
-    }
     label, input, textarea, button {
         // margin: 0 20px;
         // margin-left: 20px;
@@ -58,9 +54,6 @@ form {
                 margin-left: 4px;
             }
         }
-        .active-time {
-            background-color: #c9d2c8;
-        }
     }
     .select-style {
         background-color: white;
@@ -73,13 +66,16 @@ form {
     .button-style {
         margin-top: 20px;
         padding: 20px;
-        background-color: grey;
+        // background-color: grey;
+        background-color: #535d41;
         color: white;
         border: solid 1px grey;
         font-size: 14px;
         font-weight: 600;
+        transition: .3s;
         :hover {
             cursor: pointer;
+            background-color: #74815b;
         }
     }
     option:hover {
@@ -88,7 +84,7 @@ form {
     h2 {
         margin-top: 0;
         font-size: 40px;
-        font-weight: 300;
+        font-weight: 700;
     }
     label {
         margin-top: 20px;
@@ -104,13 +100,6 @@ form {
     textarea {
         height: 100px;
         resize:vertical;
-    }
-    .react-daterange-picker__wrapper {
-        // margin-left: 20px;
-        margin-bottom: 20px;
-        :hover {
-            cursor: pointer;
-        }
     }
     .message {
         display: flex;
@@ -200,12 +189,6 @@ form {
         // width: 100vw;
         padding: 20px;
     }
-    .time-selection {
-        justify-content: start !important;
-        div {
-            margin: 0 10px 10px 0 !important;
-        }
-    }
 }
 @media(max-width:380px){
     form {
@@ -285,8 +268,8 @@ export default function ContactElectrical(){
                             <p>Thank you for your message, we'll be in touch soon.</p>
                         </div>
                     </div>
-                    <h2>Contact Us</h2>
-                    <label htmlFor="name">Name</label>
+                    <h2>Contact Form</h2>
+                    <label htmlFor="name">Name:</label>
                     <input
                         id="name"
                         type="text" 

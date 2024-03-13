@@ -5,7 +5,7 @@ import Calendar from "react-calendar"
 import { isWithinInterval } from "date-fns";
 
 const Wrapper = styled.div`
-// background-color: #403d3d;
+background-color: #535d41;
 // border-top: solid 1px rgba(14, 30, 37, 0.12)!important;
 padding: 50px 0 100px 0;
 // min-height: 100vh;
@@ -18,7 +18,6 @@ width: 100%;
     margin: auto; 
 }
 .content-left {
-
     color: white;
     width: 600px;
     // width: 70%;

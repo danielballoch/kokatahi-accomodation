@@ -79,7 +79,8 @@ form {
         // border-radius: 5px;
         margin-top: 20px;
         padding: 20px;
-        background-color: #808080;
+        // background-color: #808080;
+        background-color: #535d41;
         color: white;
         border: solid 1px #808080;
         transition: .3s;
@@ -87,8 +88,8 @@ form {
         font-weight: 600;
         :hover {
             cursor: pointer;
-            background-color: #535d41;
-            border: solid 1px #535d41;
+            background-color: #74815b;
+            border: solid 1px #74815b;
         }
     }
     option:hover {
