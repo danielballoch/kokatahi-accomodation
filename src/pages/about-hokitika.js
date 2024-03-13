@@ -67,6 +67,7 @@ color: white;
   justify-content: center;
   align-items: center;
   .text-section { 
+    overflow-wrap: break-word;
     max-width: 500px;
     width: 100%;
   }
