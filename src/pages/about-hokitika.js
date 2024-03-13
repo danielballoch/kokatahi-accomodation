@@ -68,6 +68,7 @@ color: white;
   align-items: center;
   .text-section { 
     max-width: 500px;
+    width: 100%;
   }
   h2 {
     font-size: 36px;
