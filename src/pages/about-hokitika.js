@@ -7,12 +7,15 @@ import SEO from "../components/seo"
 
 const Wrapper = styled.div`
 width: 100%;
-margin-top: 200px;
+padding-top: 100px;
+color: white;
+// background-color: white;
 .intro {
   max-width: 800px;
   width: 90vw;
   margin: auto;
   text-align: center;
+  margin-bottom: 100px;
   h1 {
     font-size: 50px;
     margin-bottom: 0;
@@ -36,8 +39,10 @@ margin-top: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 1280px;
-  margin: 100px auto;
+  height: 100vh;
+  min-height: 760px;
+  // max-width: 1280px;
+  // margin: 100px auto;
   // border: solid 1px rgba(14, 30, 37, 0.12);
   // box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px,rgba(0, 0, 0, 0.07) 0px 2px 4px,rgba(0, 0, 0, 0.07) 0px 4px 8px,rgba(0, 0, 0, 0.07) 0px 8px 16px,rgba(0, 0, 0, 0.07) 0px 16px 32px,rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
@@ -45,13 +50,25 @@ margin-top: 200px;
   flex-direction: row-reverse;
 }
 .main-image {
-  height: 600px;
+  // height: 600px;
+  height: 100%;
   object-fit: cover;
   width: 50%;
 // width: 50%;
 // height: 100%;
 }
 .main-content {
+  box-sizing: border-box;
+  background-color: white;
+  color: black;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .text-section { 
+    max-width: 500px;
+  }
   h2 {
     font-size: 36px;
   }
@@ -67,10 +84,10 @@ margin-top: 200px;
     flex-direction: column-reverse!important;
     .main-image {
       width: 100%;
-      height: 90vw;
+      height: 100%;
     }
     .main-content{
-      width: 90vw;
+      width: 100%;
     }
   }
 }
@@ -112,7 +129,7 @@ export default function AboutHokitika(){
 let content = data.datoCmsAboutHokitikaPage
 console.log(content.section4Image)
   return(
-    <Layout invert={true}>
+    <Layout >
         <Wrapper>
           <div className="intro"> 
             <h1>{content.heading}</h1>
@@ -126,41 +143,49 @@ console.log(content.section4Image)
           </div>
           <div id="section1">
             <div className="main-content">
-              <h2>{content.section1Title}</h2>
-              {/* <p className="sub">{content.section1Subheading}</p> */}
-              {content.section1Content.split("\n").map((i,key) => {
-                  return <p key={key}>{i}</p>;
-              })}
+              <div className="text-section">
+                <h2>{content.section1Title}</h2>
+                {/* <p className="sub">{content.section1Subheading}</p> */}
+                {content.section1Content.split("\n").map((i,key) => {
+                    return <p key={key}>{i}</p>;
+                })}
+              </div>
             </div>
             <GatsbyImage className="main-image" image={getImage(content.section1Image.gatsbyImageData)} alt={content.section1Image.alt} placeholder="blur"/>
           </div>
           <div id="section2">
             <div className="main-content">
+              <div className="text-section">
               <h2>{content.section2Title}</h2>
               {/* <p className="sub">{content.section2Subheading}</p> */}
               {content.section2Content.split("\n").map((i,key) => {
                   return <p key={key}>{i}</p>;
               })}
+              </div>
             </div>
             <GatsbyImage className="main-image" image={getImage(content.section2Image.gatsbyImageData)} alt={content.section2Image.alt} placeholder="blur"/>
           </div>
           <div id="section3">
             <div className="main-content">
+             <div className="text-section">
               <h2>{content.section3Title}</h2>
               {/* <p className="sub">{content.section3Subheading}</p> */}
               {content.section3Content.split("\n").map((i,key) => {
                   return <p key={key}>{i}</p>;
               })}
+              </div>
             </div>
             <GatsbyImage className="main-image" image={getImage(content.section3Image.gatsbyImageData)} alt={content.section3Image.alt} placeholder="blur"/>
           </div>
           <div id="section4">
             <div className="main-content">
+             <div className="text-section">
               <h2>{content.section4Title}</h2>
               {/* <p className="sub">{content.section3Subheading}</p> */}
               {content.section4Content.split("\n").map((i,key) => {
                   return <p key={key}>{i}</p>;
               })}
+              </div>
             </div>
             {content.section4Image.map((image, i)=>(
               <GatsbyImage className="main-image" image={getImage(image.gatsbyImageData)} alt={image.alt} placeholder="blur"/>

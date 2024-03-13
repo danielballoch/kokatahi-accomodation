@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 import CTA from "../components/home-page-sections/cta"
 
 const FoodAttractionsIntro = styled.div`
-background-color: #535d41;
+// background-color: #535d41;
 color: white;
 display: flex;
 justify-content: center;
@@ -51,7 +51,6 @@ h1, p {
 p {
   padding-right: 0;
 }
-}
 .nav-menu {
   display: flex;
   flex-wrap: wrap;
@@ -63,6 +62,7 @@ p {
     text-decoration: none;
     margin: 0 10px 10px 0;
   }
+}
 }
 `
 
