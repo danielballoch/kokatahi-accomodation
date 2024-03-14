@@ -57,7 +57,7 @@ body {
     stroke: black;
   }
   .invert .line {
-    stroke: black;
+    // stroke: black;
   }
   @media(max-width: 700px) {
     display: block;
@@ -68,7 +68,7 @@ export default function Hamburger({clickFunction, invert, toggle}){
     
     return (
         <Wrapper onClick={() => {clickFunction()}}>
-            <svg className={toggle? "ham hamRotate ham4 active" : invert ? "ham hamRotate ham4 invert" : "ham hamRotate ham4"} viewBox="0 0 100 100" width="80">
+            <svg className={toggle? "ham hamRotate ham4 active" : "ham hamRotate ham4"} viewBox="0 0 100 100" width="80">
             <path
                     className="line top"
                     d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />

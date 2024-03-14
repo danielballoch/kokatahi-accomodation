@@ -131,7 +131,7 @@ export default function AboutHokitika(){
 let content = data.datoCmsAboutHokitikaPage
 console.log(content.section4Image)
   return(
-    <Layout >
+    <Layout location={"/about-hokitika"}>
         <Wrapper>
           <div className="intro"> 
             <h1>{content.heading}</h1>

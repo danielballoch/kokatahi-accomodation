@@ -107,7 +107,7 @@ export default function AttractionsOutdoors(){
 let attractions = data.allDatoCmsAttractionOutdoorItem.nodes
 let dining = data.allDatoCmsDiningCusineItem.nodes
   return(
-    <Layout>
+    <Layout location={"/food-and-attractions"}>
         <FoodAttractionsIntro>
           <div>
             <h1>Best of the West: Food & Activities</h1>

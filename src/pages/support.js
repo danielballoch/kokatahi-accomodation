@@ -200,7 +200,7 @@ const FAQ = (data) => {
     let Questions = data.data.allDatoCmsFaq.nodes;
     let c = data.data.datoCmsSupportPage
     return(
-        <Layout location={data.location.pathname}>
+        <Layout location={"/support"}>
             <Wrapper>
                 <Faq itemScope itemType="https://schema.org/FAQPage">
                   <h1>{c.title}</h1>

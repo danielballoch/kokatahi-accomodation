@@ -10,7 +10,7 @@ import SEO from "../components/seo"
 
 export default function Index(){
   return(
-    <Layout>
+    <Layout location={"/"}>
       <Hero/>
       <Intro/>
       <AboutHokitika/>

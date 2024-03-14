@@ -17,7 +17,7 @@ background-color: #535d41!important;
 
 export default function Accomodation(){
   return(
-    <Layout>
+    <Layout location={"/accomodation"}>
         <Wrapper>
             <StayOptions/>
         </Wrapper>

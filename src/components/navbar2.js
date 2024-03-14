@@ -12,6 +12,7 @@ width: 100vw;
 // height: 100px;
 .invert {
     background-color: rgba(255,255,255,.1)!important;
+    
 }
 .wrapper {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
@@ -214,9 +215,10 @@ width: 100vw;
 }
 `
 
-export default function Navbar({contact, invert, location}) {
+export default function Navbar({invert, location}) {
     const [menu, updateMenu] = useState(false);
     const [toggle, updateToggle] = useState(false);
+    console.log("location", location)
     return (
     <Wrapper id="top">
             <div className={invert? "wrapper invert" : "wrapper"}>
@@ -229,7 +231,7 @@ export default function Navbar({contact, invert, location}) {
                 </div>
                 <Hamburger invert={invert} toggle={toggle} clickFunction={() => {updateMenu(!menu); updateToggle(!toggle)}}/>
                 <div className={menu ? "side-drawer" : "hide"}>
-                    <Link  onClick={() => { if (location === "/"){updateMenu(!menu);} updateToggle(!toggle)}} to="/">Home</Link>
+                    <Link  onClick={() => { if (location === "/"){updateMenu(!menu); updateToggle(!toggle)}}} to="/">Home</Link>
                     <Link  onClick={() => { if (location === "/accomodation"){updateMenu(!menu);} updateToggle(!toggle)}} to="/accomodation">Accomodation</Link>
                     <Link onClick={() => { if (location === "/food-and-attractions"){updateMenu(!menu);} updateToggle(!toggle)}} to="/food-and-attractions">Food & Attractions</Link>
                     <Link onClick={() => { if (location === "/about-hokitika"){updateMenu(!menu);} updateToggle(!toggle)}} to="/about-hokitika">About Hokitika</Link>
