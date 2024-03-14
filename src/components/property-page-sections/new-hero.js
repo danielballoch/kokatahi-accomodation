@@ -40,7 +40,6 @@ background-color: black;
         
     }
 }
-
 @media(max-width: 600px){
     .content-box {
         top: 60vh;

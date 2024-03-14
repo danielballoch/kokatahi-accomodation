@@ -18,12 +18,23 @@ flex-direction: column;
 justify-content: center;    
 width: 1041px;
 // height: 100%;
-.swiper-button-next {
+// .swiper-button-next {
 
-}
+// }
 .main-image {
     width: 1041px;
     height: 641px;
+}
+@media(max-width: 1080px){
+  width: 90vw;
+  height: 600px;
+}
+@media(max-width: 700px){
+  width: 90vw;
+  height: 380px;
+}
+@media(max-width: 440px){
+  height: 300px;
 }
 `
 

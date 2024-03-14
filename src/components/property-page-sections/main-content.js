@@ -57,13 +57,26 @@ background-color: white;
     .main {
         flex-direction: column;
         .content-left {
+            box-sizing: border-box;
             width: 90vw;
-            padding: 0;
+            // padding: 0;
             margin: auto;
         }
         .content-right {
-            margin: 100px 0 100px 5vw;
+            // margin: 100px 0 100px 5vw;
             width: 90vw;
+        }
+    }
+}
+@media(max-width: 600px){
+    .main {
+        .content-right {
+            display: flex;
+            flex-direction: column!important;
+            .img, .host-text {
+                width: 100%;
+                border-radius: 0;
+            }
         }
     }
 }
