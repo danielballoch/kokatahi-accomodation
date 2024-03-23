@@ -120,14 +120,29 @@ hr {
 export default function AttractionsOutdoors(){
   const [activeItem, setActiveItem] = useState(0)
   const data = useStaticQuery(graphql`
-  query DiningOptionsQuery {
-      datoCmsHomePage {
-          localDiningCuisineTitle
-          localDiningCuisineBlurb
+  query AttractionOutdoorsQuery {
+      allDatoCmsHomePage {
+        nodes {
+          localCuisineAttractionsTitle
+          localCuisineAttractionsBlurb
+        }
       }
       allDatoCmsDiningCusineItem(
         sort: {position:ASC}
-        limit: 3
+      ) {
+        nodes {
+          position
+          title
+          blurb
+          image {
+            gatsbyImageData
+            alt
+          }
+          
+        }
+      }
+      allDatoCmsAttractionOutdoorItem(
+        sort: {position:ASC}
       ) {
         nodes {
           position
@@ -142,29 +157,38 @@ export default function AttractionsOutdoors(){
       }
     }
 `)
-let diningMain = data.datoCmsHomePage;
+let diningMain = data.allDatoCmsHomePage.nodes[0];
 let dining = data.allDatoCmsDiningCusineItem.nodes
+let outdoors = data.allDatoCmsAttractionOutdoorItem.nodes
+console.log("DiningMain: ", diningMain)
   return(
     <Wrapper id="local-dining-and-cuisine">
       <div className="center-div">
         <div className="content">
-          <h2>Local Cuisine & Attractions</h2>
-          <p>{diningMain.localDiningCuisineBlurb}</p>
+          <h2>{diningMain.localCuisineAttractionsTitle}</h2>
+          <p>{diningMain.localCuisineAttractionsBlurb}</p>
           <div>
-            {dining.map((resturant, i)=>(
-              <div className="content-item" onMouseEnter={() => setActiveItem(i)}>
-                <p className={i === activeItem? "active-p" : ""}>{resturant.title}</p>
-                <GatsbyImage className="mobile-image" image={getImage(resturant.image.gatsbyImageData)} alt={resturant.image.alt} placeholder="blur"/>
+            <div className="content-item" onMouseEnter={() => setActiveItem(0)}>
+                <p className={0 === activeItem? "active-p" : ""}>{dining[0].title}</p>
+                <GatsbyImage className="mobile-image" image={getImage(dining[0].image.gatsbyImageData)} alt={dining[0].image.alt} placeholder="blur"/>
                 <hr/>
-              </div>
-              
-            ))}
+            </div>
+            <div className="content-item" onMouseEnter={() => setActiveItem(1)}>
+                <p className={1 === activeItem? "active-p" : ""}>{outdoors[1].title}</p>
+                <GatsbyImage className="mobile-image" image={getImage(outdoors[1].image.gatsbyImageData)} alt={outdoors[1].image.alt} placeholder="blur"/>
+                <hr/>
+            </div>
+            <div className="content-item" onMouseEnter={() => setActiveItem(9)}>
+                <p className={9 === activeItem? "active-p" : ""}>{outdoors[9].title}</p>
+                <GatsbyImage className="mobile-image" image={getImage(outdoors[9].image.gatsbyImageData)} alt={outdoors[9].image.alt} placeholder="blur"/>
+                <hr/>
+            </div>
           </div>
           <Link to="/food-and-attractions/#dining-and-cuisine" className="main-button">See More</Link>
         </div>
         <GatsbyImage className={activeItem === 0? "main-image active" : "main-image"} image={getImage(dining[0].image.gatsbyImageData)} alt={dining[0].image.alt} placeholder="blur"/>
-        <GatsbyImage className={activeItem === 1? "main-image active" : "main-image"} image={getImage(dining[1].image.gatsbyImageData)} alt={dining[1].image.alt} placeholder="blur"/>
-        <GatsbyImage className={activeItem === 2? "main-image active" : "main-image"} image={getImage(dining[2].image.gatsbyImageData)} alt={dining[2].image.alt} placeholder="blur"/>
+        <GatsbyImage className={activeItem === 1? "main-image active" : "main-image"} image={getImage(outdoors[1].image.gatsbyImageData)} alt={outdoors[1].image.alt} placeholder="blur"/>
+        <GatsbyImage className={activeItem === 9? "main-image active" : "main-image"} image={getImage(outdoors[9].image.gatsbyImageData)} alt={outdoors[9].image.alt} placeholder="blur"/>
       </div>
     </Wrapper>
   )

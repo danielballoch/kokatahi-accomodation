@@ -70,10 +70,6 @@ p {
 export default function AttractionsOutdoors(){
   const data = useStaticQuery(graphql`
   query AllFoodAttractionsOptionsQuery {
-      datoCmsHomePage {
-          attractionsOutdoorsTitle
-          localDiningCuisineTitle
-      }
       allDatoCmsAttractionOutdoorItem(
         sort: {position:ASC}
       ) {
@@ -118,8 +114,8 @@ let dining = data.allDatoCmsDiningCusineItem.nodes
               <a href={"#attractions-and-outdoors"}>Attractions & Outdoors</a>
             </div>
         </FoodAttractionsIntro>
-        <FoodAttractionsFull id="dining-and-cuisine" attractions={dining} title={data.datoCmsHomePage.localDiningCuisineTitle}/>
-        <FoodAttractionsFull id="attractions-and-outdoors" attractions={attractions} title={data.datoCmsHomePage.attractionsOutdoorsTitle}/>
+        <FoodAttractionsFull id="dining-and-cuisine" attractions={dining} title={"Local Dining & Cuisine"}/>
+        <FoodAttractionsFull id="attractions-and-outdoors" attractions={attractions} title={"Attractions & Outdoors"}/>
         <CTA/>
     </Layout>
   )
