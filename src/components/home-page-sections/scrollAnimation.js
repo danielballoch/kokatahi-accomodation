@@ -8,12 +8,12 @@ const ScrollContainer = styled.div`
 width: 60px;
 // height: 108px;
 margin-top: -54px;
-margin-left: -54px;
+// margin-left: -54px;
 position: absolute;
 z-index: 10;
-left: calc(50% + 30px);
-top: 140%;
-transform: scale(.4) ;
+left: calc(50vw - 27px);
+top: 90%;
+transform: scale(.5) ;
 
 .scroll-msg-inner {
     width: 40px;
@@ -44,7 +44,7 @@ transform: scale(.4) ;
 
 export default function ScrollAnimation(){
     return (
-        <ScrollContainer>
+        <ScrollContainer className="animate">
             <div className="scroll-msg-inner">
                 <div className="scroll-msg-wheel">
                 </div>

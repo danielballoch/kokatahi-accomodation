@@ -4,6 +4,11 @@ import { GatsbyImage, getImage} from "gatsby-plugin-image"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import ScrollAnimation from "./scrollAnimation"
 
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useGSAP } from "@gsap/react";
+
 const Wrapper = styled.div`
 display: grid;
 justify-content: center;
@@ -14,6 +19,9 @@ width: 100%;
 box-sizing: border-box;
 overflow: hidden;
 // padding-top: 100px;
+.animate {
+    opacity: 0;
+}
 .background-image {
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     filter: brightness(30%);
@@ -37,13 +45,13 @@ overflow: hidden;
     padding-bottom: 100px;
 }
 .main-content {
-    transform: scale(1.4);
+    // transform: scale(1.4);
     width:700px;
     // height: 300px;
     h1 {
         margin-top: 0;
         margin-bottom: 0;
-        font-size: 40px;
+        font-size: 58px;
         font-weight: 400px;
         color: white;
         text-align: center;
@@ -51,10 +59,10 @@ overflow: hidden;
     p {
         padding: 10px;
         margin: auto;
-        max-width: 400px;
+        max-width: 600px;
         text-align: center;
         color: white;
-        font-size: 18px;
+        font-size: 26px;
     }
 }
 @media(max-width: 710px){
@@ -62,7 +70,7 @@ overflow: hidden;
         width: 90vw;
     }
     .main-content {
-        transform: scale(1);
+        // transform: scale(1);
         width: 90vw;
         padding: 0px;
         box-sizing: border-box;
@@ -78,7 +86,18 @@ overflow: hidden;
             font-size: 37px;
         }
     }
+}
+.test {
+    position: absolute;
+    height: 50px;
+    width: 20px;
+    left: calc(50vw - 10px);
+    bottom: -15px;
+    background-color: red;
+    
+}
 `
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function Hero(){
     const data = useStaticQuery(graphql`
@@ -93,6 +112,21 @@ export default function Hero(){
 `)
 let c = data.datoCmsHomePage;
 console.log("hello: ", data)
+
+const heroref = useRef();
+useGSAP(
+    () => {
+        const careertitles = gsap.utils.toArray(['.animate']);
+        careertitles.forEach((box, i) => {
+            gsap.to(box, {
+                opacity: 1,
+                delay: i * 0.3,
+                duration: 1,
+            });
+        });
+    },
+    { scope: heroref }
+);
   return(
     <Wrapper>
             <GatsbyImage className="background-image" image={getImage(c.heroBackground.gatsbyImageData)} alt={c.heroBackground.alt} placeholder="blur"/>
@@ -112,13 +146,14 @@ console.log("hello: ", data)
                 <source src={VideoSRC} disablePictureInPicture  type="video/mp4" />
             </video> */}
             <div className="content-wrapper">
-                <div className="main-content">
-                    <h1>
+                <div className="main-content" ref={heroref}>
+                    <h1 className="animate">
                         Kokatahi Accomodation
                         {/* {c.heroTitle} */}
                         </h1>
-                    <p>The Perfect spot for your Hokitika exploration, family holiday, or outdoors escape. </p>
+                    <p className="animate">The Perfect spot for your Hokitika exploration, family holiday, or outdoors escape. </p>
                     <ScrollAnimation/>
+                    {/* <div className="test"/> */}
                 </div>
             </div>
         </Wrapper>
