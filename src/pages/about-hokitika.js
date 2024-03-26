@@ -142,7 +142,6 @@ export default function AboutHokitika(){
   }     
  `)
 let content = data.datoCmsAboutHokitikaPage
-console.log(content.section4Image)
 
   const aboutref = useRef();
   useGSAP(
