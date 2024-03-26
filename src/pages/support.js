@@ -232,7 +232,6 @@ const FAQ = (data) => {
                     trigger: box,
                     start: 'top 95%',
                     end: 'bottom 50%',
-                    markers: true,
                 },
               });
           })
