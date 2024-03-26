@@ -5,6 +5,11 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import SEO from "../components/seo"
 
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useGSAP } from "@gsap/react";
+
 const Wrapper = styled.div`
 width: 100%;
 padding-top: 100px;
@@ -36,6 +41,7 @@ color: white;
   }
 }
 #section1, #section2, #section3, #section4 {
+  background-color: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -93,7 +99,14 @@ color: white;
     }
   }
 }
+.animate {
+  opacity: 0;
+}
+.animate2 {
+  opacity: 0;
+}
 `
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function AboutHokitika(){
   const data = useStaticQuery(graphql`
@@ -130,62 +143,92 @@ export default function AboutHokitika(){
  `)
 let content = data.datoCmsAboutHokitikaPage
 console.log(content.section4Image)
+
+  const aboutref = useRef();
+  useGSAP(
+    () => {
+        const supportintro = gsap.utils.toArray(['.animate']);
+        supportintro.forEach((box, i) => {
+            gsap.to(box, {
+                opacity: 1,
+                delay: i * 0.3,
+                duration: 1,
+            });
+        })
+        const supportitems = gsap.utils.toArray(['.animate2']);
+        console.log("hello",supportitems)
+        supportitems.forEach((box, i) => {
+            gsap.to(box, {
+                opacity: 1,
+                delay: 0.3,
+                duration: 1,
+                scrollTrigger: {
+                  trigger: box,
+                  start: 'top 95%',
+                  end: 'bottom 50%'
+              },
+            });
+        })
+    },
+    { scope: aboutref }
+  );
+
   return(
     <Layout location={"/about-hokitika"}>
-        <Wrapper>
+        <Wrapper ref={aboutref}>
           <div className="intro"> 
-            <h1>{content.heading}</h1>
-            <p className="mini-nav">
+            <h1 className="animate">{content.heading}</h1>
+            <p className="mini-nav animate">
               <a href="#section1">{content.section1Title}</a>
               <a href="#section2">{content.section2Title}</a>
               <a href="#section3">{content.section3Title}</a>
               <a href="#section4">{content.section4Title}</a>
               </p>
-            <p>{content.headingSubtext}</p>
+            <p className="animate">{content.headingSubtext}</p>
           </div>
           <div id="section1">
             <div className="main-content">
               <div className="text-section">
-                <h2>{content.section1Title}</h2>
+                <h2 className="animate2">{content.section1Title}</h2>
                 {/* <p className="sub">{content.section1Subheading}</p> */}
                 {content.section1Content.split("\n").map((i,key) => {
-                    return <p key={key}>{i}</p>;
+                    return <p key={key} className="animate2">{i}</p>;
                 })}
               </div>
             </div>
-            <GatsbyImage className="main-image" image={getImage(content.section1Image.gatsbyImageData)} alt={content.section1Image.alt} placeholder="blur"/>
+            <GatsbyImage className="main-image animate2" image={getImage(content.section1Image.gatsbyImageData)} alt={content.section1Image.alt} placeholder="blur"/>
           </div>
           <div id="section2">
             <div className="main-content">
               <div className="text-section">
-              <h2>{content.section2Title}</h2>
+              <h2 className="animate2">{content.section2Title}</h2>
               {/* <p className="sub">{content.section2Subheading}</p> */}
               {content.section2Content.split("\n").map((i,key) => {
-                  return <p key={key}>{i}</p>;
+                  return <p key={key} className="animate2">{i}</p>;
               })}
               </div>
             </div>
-            <GatsbyImage className="main-image" image={getImage(content.section2Image.gatsbyImageData)} alt={content.section2Image.alt} placeholder="blur"/>
+            <GatsbyImage className="main-image animate2" image={getImage(content.section2Image.gatsbyImageData)} alt={content.section2Image.alt} placeholder="blur"/>
           </div>
           <div id="section3">
             <div className="main-content">
              <div className="text-section">
-              <h2>{content.section3Title}</h2>
+              <h2 className="animate2">{content.section3Title}</h2>
               {/* <p className="sub">{content.section3Subheading}</p> */}
               {content.section3Content.split("\n").map((i,key) => {
-                  return <p key={key}>{i}</p>;
+                  return <p key={key} className="animate2">{i}</p>;
               })}
               </div>
             </div>
-            <GatsbyImage className="main-image" image={getImage(content.section3Image.gatsbyImageData)} alt={content.section3Image.alt} placeholder="blur"/>
+            <GatsbyImage className="main-image animate2" image={getImage(content.section3Image.gatsbyImageData)} alt={content.section3Image.alt} placeholder="blur"/>
           </div>
           <div id="section4">
             <div className="main-content">
              <div className="text-section">
-              <h2>{content.section4Title}</h2>
+              <h2 className="animate2">{content.section4Title}</h2>
               {/* <p className="sub">{content.section3Subheading}</p> */}
               {content.section4Content.split("\n").map((i,key) => {
-                  return <p key={key}>{i}</p>;
+                  return <p key={key} className="animate2">{i}</p>;
               })}
               </div>
             </div>
