@@ -4,6 +4,11 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 import { GatsbyImage, getImage} from "gatsby-plugin-image"
 import { StaticImage } from "gatsby-plugin-image"
 
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useGSAP } from "@gsap/react";
+
 const Wrapper = styled.div`
 display: flex;
 height: 100vh;
@@ -123,19 +128,42 @@ background-color: #eee;
         }
     }
 }
+.animate {
+    opacity: 0;
+}
 `
 
 export default function AboutHokitika(){
   const [image, setImage] = useState(0)
 
+  const aboutref = useRef();
+    useGSAP(
+        () => {
+            const careertitles = gsap.utils.toArray(['.animate']);
+            careertitles.forEach((box, i) => {
+                gsap.to(box, {
+                    opacity: 1,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: ".animate"+i,
+                        start: 'top 80%',
+                        end: 'bottom 50%',
+                    },
+                });
+                
+            })
+        
+        },
+        { scope: aboutref }
+    );
   return(
-    <Wrapper>
+    <Wrapper ref={aboutref}>
         <div className="content-wrapper">
             <div className="content">
-                <h2>The Beautiful Land of the West Coast</h2>
-                <p>Hokitika has a rich history and beautiful landscape. With views of Mount Cook (the highest mountain in NZ) from the main streets, beautiful walks and reserves, glow worms, Hokitika Beach, and scenic lakes nearby - it’s long been the heart of West Land and a must visit for overseas and local travelers.</p>
-                <p>Hokitika was the center of the West Coast Gold Rush in 1864 and has a number of historical buildings in the city from the Woodstock Hotel (est 1870), Carnegie Building (1908), and Heritage Park among others.</p>
-                <a href="/about-hokitika" className="main-button">Learn More</a>
+                <h2 className="animate animate0">The Beautiful Land of the West Coast</h2>
+                <p className="animate animate1">Hokitika has a rich history and beautiful landscape. With views of Mount Cook (the highest mountain in NZ) from the main streets, beautiful walks and reserves, glow worms, Hokitika Beach, and scenic lakes nearby - it’s long been the heart of West Land and a must visit for overseas and local travelers.</p>
+                <p className="animate animate2">Hokitika was the center of the West Coast Gold Rush in 1864 and has a number of historical buildings in the city from the Woodstock Hotel (est 1870), Carnegie Building (1908), and Heritage Park among others.</p>
+                <a href="/about-hokitika" className="main-button animate animate3">Learn More</a>
             </div>
         </div>
         <div className="image-wrapper">

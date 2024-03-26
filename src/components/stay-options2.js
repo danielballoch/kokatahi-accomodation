@@ -3,6 +3,11 @@ import styled from "@emotion/styled"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { GatsbyImage, getImage} from "gatsby-plugin-image"
 
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useGSAP } from "@gsap/react";
+
 const Wrapper = styled.div`
 min-height: 100vh;
 display: flex;
@@ -130,7 +135,15 @@ h2 {
     }
   }
 }
+.animateheader {
+  opacity: 0;
+}
+.animate {
+  opacity: 0;
+  transform: translateY(100px);
+}
 `
+
 
 export default function StayOptions(){
   const stayOptionData = useStaticQuery(graphql`
@@ -184,12 +197,57 @@ if(stayOptionData.datoCmsStayOption1){
 }
 // let stayOptions = [data.datoCmsStayOption1, data.datoCmsStayOption2, data.datoCmsStayOption3]
 console.log("stay options:", stayOptions)
+
+  //animation
+  const stayref = useRef();
+  let revealRefs = useRef([]);
+  revealRefs.current = [];
+
+  const addToRefs = (el) => {
+    if(el && !revealRefs.current.includes(el)){
+      revealRefs.current.push(el)
+    }
+  }
+
+  useGSAP(
+      () => {
+          gsap.to('.animateheader', {
+            opacity: 1,
+            duration: 1,
+            delay: .2,
+            scrollTrigger: {
+              trigger: ".animateheader",
+              start: 'top 80%',
+              end: 'bottom 50%',
+          },
+          });
+          revealRefs.current.forEach((box, i) => {
+              gsap.to(box, {
+                  opacity: 1,
+                  delay: i * .3,
+                  translateY: 0,
+                  duration: 1,
+                  scrollTrigger: {
+                      trigger: box,
+                      start: 'top 80%',
+                      end: 'bottom 50%',
+                  },
+              });
+              
+          })
+      
+      },
+      { scope: stayref }
+  );
+
+ 
+
   return(
-    <Wrapper>
-      <h2>{c.stayOptionsTitle}</h2>
+    <Wrapper ref={stayref}>
+      <h2 className="animateheader">{c.stayOptionsTitle}</h2>
       <div className="properties">
         {stayOptions ? stayOptions.map((stayOption, i) => (
-            <Link to={"/"+stayOption.urlPath} className="property-card">
+            <Link to={"/"+stayOption.urlPath} key={stayOption.title} className="property-card animate" ref={addToRefs}>
             <GatsbyImage className="main-image" image={getImage(stayOption.mainImage.gatsbyImageData)} alt={stayOption.mainImage.alt} placeholder="blur"/>
             <div className="property-info">
               <h3>{stayOption.title}</h3>

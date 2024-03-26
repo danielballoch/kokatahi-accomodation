@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 display: grid;
 justify-content: center;
 align-items: center;
-background-color: #424a34;
+background: #424a34;
 height: 100vh;
 width: 100%;
 box-sizing: border-box;
@@ -23,6 +23,10 @@ overflow: hidden;
     opacity: 0;
 }
 .background-image {
+    transform: scale(0.9);
+    opacity: 0.5;
+
+
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     filter: brightness(30%);
     border-radius: 10px;
@@ -87,15 +91,7 @@ overflow: hidden;
         }
     }
 }
-.test {
-    position: absolute;
-    height: 50px;
-    width: 20px;
-    left: calc(50vw - 10px);
-    bottom: -15px;
-    background-color: red;
-    
-}
+
 `
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -116,20 +112,26 @@ console.log("hello: ", data)
 const heroref = useRef();
 useGSAP(
     () => {
+        gsap.to('.animatebg', {
+            scale: 1,
+            opacity: 1,
+            duration: .5,
+        });
         const careertitles = gsap.utils.toArray(['.animate']);
         careertitles.forEach((box, i) => {
             gsap.to(box, {
                 opacity: 1,
-                delay: i * 0.3,
+                delay: .2 + i * 0.3,
                 duration: 1,
             });
-        });
+        })
+       
     },
     { scope: heroref }
 );
   return(
-    <Wrapper>
-            <GatsbyImage className="background-image" image={getImage(c.heroBackground.gatsbyImageData)} alt={c.heroBackground.alt} placeholder="blur"/>
+    <Wrapper ref={heroref}>
+            <GatsbyImage className="background-image animatebg" image={getImage(c.heroBackground.gatsbyImageData)} alt={c.heroBackground.alt} placeholder="blur"/>
             {/* <video className="background-image"
               disablePictureInPicture 
               controlsList="nodownload"
@@ -146,7 +148,7 @@ useGSAP(
                 <source src={VideoSRC} disablePictureInPicture  type="video/mp4" />
             </video> */}
             <div className="content-wrapper">
-                <div className="main-content" ref={heroref}>
+                <div className="main-content" >
                     <h1 className="animate">
                         Kokatahi Accomodation
                         {/* {c.heroTitle} */}

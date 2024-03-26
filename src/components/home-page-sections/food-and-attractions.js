@@ -3,6 +3,11 @@ import styled from "@emotion/styled"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useGSAP } from "@gsap/react";
+
 const Wrapper = styled.div`
 height: 100vh;
 min-height: 720px;
@@ -115,6 +120,9 @@ hr {
     padding: 0!important;
   }
 }
+.animate {
+  opacity: 0;
+}
 `
 
 export default function AttractionsOutdoors(){
@@ -161,30 +169,57 @@ let diningMain = data.allDatoCmsHomePage.nodes[0];
 let dining = data.allDatoCmsDiningCusineItem.nodes
 let outdoors = data.allDatoCmsAttractionOutdoorItem.nodes
 console.log("DiningMain: ", diningMain)
+
+
+    //animation
+  const foodref = useRef();
+  useGSAP(
+      () => {
+          const fooditem = gsap.utils.toArray(['.animate']);
+          console.log(fooditem)
+          fooditem.forEach((box, i) => {
+              gsap.to(box, {
+                  opacity: 1,
+                  duration: 1,
+                  scrollTrigger: {
+                      trigger: box,
+                      start: 'top 80%',
+                      end: 'bottom 50%',
+                  },
+              });
+              
+          })
+      
+      },
+      { scope: foodref }
+  );
+
+
+
   return(
-    <Wrapper id="local-dining-and-cuisine">
+    <Wrapper id="local-dining-and-cuisine" ref={foodref}>
       <div className="center-div">
         <div className="content">
-          <h2>{diningMain.localCuisineAttractionsTitle}</h2>
-          <p>{diningMain.localCuisineAttractionsBlurb}</p>
+          <h2 className="animate">{diningMain.localCuisineAttractionsTitle}</h2>
+          <p className="animate">{diningMain.localCuisineAttractionsBlurb}</p>
           <div>
-            <div className="content-item" onMouseEnter={() => setActiveItem(0)}>
+            <div className="content-item animate" onMouseEnter={() => setActiveItem(0)}>
                 <p className={0 === activeItem? "active-p" : ""}>{dining[0].title}</p>
                 <GatsbyImage className="mobile-image" image={getImage(dining[0].image.gatsbyImageData)} alt={dining[0].image.alt} placeholder="blur"/>
                 <hr/>
             </div>
-            <div className="content-item" onMouseEnter={() => setActiveItem(1)}>
+            <div className="content-item animate" onMouseEnter={() => setActiveItem(1)}>
                 <p className={1 === activeItem? "active-p" : ""}>{outdoors[1].title}</p>
                 <GatsbyImage className="mobile-image" image={getImage(outdoors[1].image.gatsbyImageData)} alt={outdoors[1].image.alt} placeholder="blur"/>
                 <hr/>
             </div>
-            <div className="content-item" onMouseEnter={() => setActiveItem(9)}>
+            <div className="content-item animate" onMouseEnter={() => setActiveItem(9)}>
                 <p className={9 === activeItem? "active-p" : ""}>{outdoors[9].title}</p>
                 <GatsbyImage className="mobile-image" image={getImage(outdoors[9].image.gatsbyImageData)} alt={outdoors[9].image.alt} placeholder="blur"/>
                 <hr/>
             </div>
           </div>
-          <Link to="/food-and-attractions/#dining-and-cuisine" className="main-button">See More</Link>
+          <Link to="/food-and-attractions/#dining-and-cuisine" className="main-button animate">See More</Link>
         </div>
         <GatsbyImage className={activeItem === 0? "main-image active" : "main-image"} image={getImage(dining[0].image.gatsbyImageData)} alt={dining[0].image.alt} placeholder="blur"/>
         <GatsbyImage className={activeItem === 1? "main-image active" : "main-image"} image={getImage(outdoors[1].image.gatsbyImageData)} alt={outdoors[1].image.alt} placeholder="blur"/>

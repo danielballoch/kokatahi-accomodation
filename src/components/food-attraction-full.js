@@ -2,6 +2,11 @@ import React,{useState} from "react"
 import styled from "@emotion/styled"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useGSAP } from "@gsap/react";
+
 const Wrapper = styled.div`
 height: fit-content;
 // min-height: 960px;
@@ -49,7 +54,7 @@ h1 {
     .content-item {
         transition: .3s;
         hr {
-          opacity: 0.3;
+          opacity: 0;
         }
         :hover {
             cursor: pointer;
@@ -119,15 +124,70 @@ h1 {
     }
   }
 }
+.animate {
+  opacity: 0;
+}
+.animateright {
+  opacity: 0;
+  transform: translateX(40px);
+}
 `
 
 export default function AttractionsOutdoors({attractions, title, id}){
   const [activeItem, setActiveItem] = useState(0)
+
+  const foodoptions = useRef();
+
+  useGSAP(
+    () => {
+        const fooditems = gsap.utils.toArray(['.animate']);
+        fooditems.forEach((box, i) => {
+            gsap.to(box, {
+                opacity: 1,
+                delay: .3,
+                duration: 1,
+                scrollTrigger: {
+                  trigger: box,
+                  start: 'top 95%',
+                  end: 'bottom 50%',
+              },
+            });
+        })
+        const fooditems2 = gsap.utils.toArray(['.animate2']);
+        fooditems2.forEach((box, i) => {
+            gsap.to(box, {
+                opacity: 0.3,
+                delay: .3,
+                duration: 1,
+                scrollTrigger: {
+                  trigger: box,
+                  start: 'top 95%',
+                  end: 'bottom 50%',
+              },
+            });
+        })
+        const itemsright = gsap.utils.toArray(['.animateright']);
+        itemsright.forEach((box, i) => {
+            gsap.to(box, {
+                opacity: 1,
+                translateX: 0,
+                duration: 1,
+                scrollTrigger: {
+                  trigger: box,
+                  start: 'top 80%',
+                  end: 'bottom 50%',
+              },
+            });
+        })
+       
+    },
+    { scope: foodoptions }
+  );
   return(
-        <Wrapper>
+        <Wrapper ref={foodoptions}>
         <div className="center-div" id={id}>
             <div className="content">
-            <h2>{title}</h2>
+            <h2 className="animate">{title}</h2>
             <div className="nav-menu">
             {attractions.map((attraction, i)=>(
               <a href={"#"+id+i}>{attraction.title}</a>
@@ -136,11 +196,11 @@ export default function AttractionsOutdoors({attractions, title, id}){
             <div>
                 {attractions.map((attraction, i)=>(
                 <div id={id+i} className="content-item" onMouseEnter={() => setActiveItem(i)} key={"level "+i}>
-                    <p className={i === activeItem? "active-p" : ""}>{attraction.title}</p>
+                    <p className={i === activeItem? "active-p animate" : "animate"}>{attraction.title}</p>
                     <GatsbyImage className="main-image mobile" image={getImage(attraction.image.gatsbyImageData)} alt={attractions[0].image.alt} placeholder="blur"/>
                     <h3 className="mobile">{attraction.title}</h3>
                     <p className="mobile">{attraction.blurb}</p>
-                    <hr/>
+                    <hr className="animate2"/>
                 </div>
                 
                 ))}
@@ -148,9 +208,9 @@ export default function AttractionsOutdoors({attractions, title, id}){
             {/* <a className="main-button">See More Local Attractions</a> */}
             </div>
             <div className="content-right">
-              <GatsbyImage className="main-image" image={getImage(attractions[activeItem].image.gatsbyImageData)} alt={attractions[0].image.alt} placeholder="blur"/>
-              <h2>{attractions[activeItem].title}</h2>
-              <p>{attractions[activeItem].blurb}</p>
+              <GatsbyImage className="main-image animateright" image={getImage(attractions[activeItem].image.gatsbyImageData)} alt={attractions[0].image.alt} placeholder="blur"/>
+              <h2 className="animateright">{attractions[activeItem].title}</h2>
+              <p className="animateright">{attractions[activeItem].blurb}</p>
             </div>
         </div>
         </Wrapper>

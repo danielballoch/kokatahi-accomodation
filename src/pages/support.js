@@ -7,6 +7,11 @@ import { StructuredText } from 'react-datocms';
 import SupportForm from "../components/support-form"
 import CTA from "../components/home-page-sections/cta"
 
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useGSAP } from "@gsap/react";
+
 const Wrapper = styled.div`
 background-color: #535D41;
 display: flex;
@@ -39,6 +44,12 @@ overflow: hidden;
         height: 100%;
         filter: 
     }
+}
+.animate {
+    opacity: 0;
+}
+.animate2 {
+    opacity: 0;
 }
 `
 const Faq = styled.div`
@@ -177,7 +188,7 @@ const Content = ({question, answer,i}) => {
     return (
         <ContentBox  onClick={() => {setToggle(!toggle)}}>
             <div key={"question " + i}>
-                <h3><p className="question">{question}</p><div className={toggle ? "button" : "button open"}/></h3>
+                <h3 className="animate2"><p className="question">{question}</p><div className={toggle ? "button" : "button open"}/></h3>
                 <div className={toggle ? "answer toggle" : "answer"}>
                 <StructuredText
                         data={answer.value}
@@ -199,12 +210,42 @@ const Content = ({question, answer,i}) => {
 const FAQ = (data) => {
     let Questions = data.data.allDatoCmsFaq.nodes;
     let c = data.data.datoCmsSupportPage
+
+    const supportref = useRef();
+    useGSAP(
+      () => {
+          const supportintro = gsap.utils.toArray(['.animate']);
+          supportintro.forEach((box, i) => {
+              gsap.to(box, {
+                  opacity: 1,
+                  delay: i * 0.3,
+                  duration: 1,
+              });
+          })
+          const supportitems = gsap.utils.toArray(['.animate2']);
+          supportitems.forEach((box, i) => {
+              gsap.to(box, {
+                  opacity: 1,
+                  delay: 0.3,
+                  duration: 1,
+                  scrollTrigger: {
+                    trigger: box,
+                    start: 'top 95%',
+                    end: 'bottom 50%',
+                    markers: true,
+                },
+              });
+          })
+      },
+      { scope: supportref }
+    );
+
     return(
         <Layout location={"/support"}>
-            <Wrapper>
+            <Wrapper ref={supportref}>
                 <Faq itemScope itemType="https://schema.org/FAQPage">
-                  <h1>{c.title}</h1>
-                  <p className="subheading">{c.blurb}</p>  
+                  <h1 className="animate">{c.title}</h1>
+                  <p className="subheading animate">{c.blurb}</p>  
                   {Questions.map((question, i) => (
                       <Content question={question.question} answer={question.answer} i={i}/>
                   ))}

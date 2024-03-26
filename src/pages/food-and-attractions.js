@@ -6,6 +6,11 @@ import FoodAttractionsFull from "../components/food-attraction-full"
 import SEO from "../components/seo"
 import CTA from "../components/home-page-sections/cta"
 
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useGSAP } from "@gsap/react";
+
 const FoodAttractionsIntro = styled.div`
 // background-color: #535d41;
 color: white;
@@ -64,7 +69,15 @@ p {
   }
 }
 }
+.animatetitle {
+  opacity: 0;
+}
+.wrap {
+  // height: calc(100vh - 230px);
+}
 `
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 
 export default function AttractionsOutdoors(){
@@ -102,11 +115,24 @@ export default function AttractionsOutdoors(){
 `)
 let attractions = data.allDatoCmsAttractionOutdoorItem.nodes
 let dining = data.allDatoCmsDiningCusineItem.nodes
+
+const foodref = useRef();
+useGSAP(
+    () => {
+        gsap.to('.animatetitle', {
+            opacity: 1,
+            delay: .2,
+            duration: 1,
+        });
+    },
+    { scope: foodref }
+);
+
   return(
     <Layout location={"/food-and-attractions"}>
-        <FoodAttractionsIntro>
-          <div>
-            <h1>Best of the West: Food & Activities</h1>
+        <FoodAttractionsIntro ref={foodref}>
+          <div className="wrap">
+            <h1 className="animatetitle">Best of the West: Food & Activities</h1>
             {/* <p>There’s a variety of activities and attractions to keep you busy in the West Coast. Everything from great bars, cafes, and restaurants to historic sites, trails, lakes, hunting and fishing spots etc. Check out some of our favourites below.</p> */}
           </div>
           <div className="nav-menu">
