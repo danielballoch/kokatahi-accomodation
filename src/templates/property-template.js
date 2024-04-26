@@ -106,7 +106,7 @@ console.log("properties to send: ", datesToSend);
     <Layout invert={true}>
         <Hero images={property.gallery} title={property.title} blurb={property.blurb}/>
         <MainContent content={property.mainContent.value} hostData={hostData}/>
-        <BookingSection datesUnavailable={datesToSend}/>
+        <BookingSection datesUnavailable={datesToSend} property={Number(pageContext.id + 1)} />
         {/* <CTA/> */}
     </Layout>
   )

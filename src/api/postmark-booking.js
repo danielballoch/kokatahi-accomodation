@@ -143,7 +143,7 @@ export default async(req, res) => {
     return client.sendEmailWithTemplate(message).then(
       () => {
         console.log("client-message-sent")
-        message.To = "philsmotoschool@outlook.com"
+        message.To = "daniel@thoughtfulhq.com"
         message.ReplyTo = req.body.email
         message.TemplateId = 34430549
         client.sendEmailWithTemplate(message)

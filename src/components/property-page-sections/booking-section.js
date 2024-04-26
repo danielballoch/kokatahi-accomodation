@@ -118,7 +118,7 @@ let in15Days = new Date(2024, 1, 26);
 
 
 
-export default function MainContent({datesUnavailable}){
+export default function MainContent({datesUnavailable, property}){
     const [bookedDates, setBookedDates] = useState([ [in3Days, in5Days],[in13Days, in15Days],])
 
     useEffect(()=> {
@@ -161,7 +161,7 @@ export default function MainContent({datesUnavailable}){
                 
                 </div>
                 <div className="content-right">
-                    <BookingForm bookedDates={bookedDates}/>
+                    <BookingForm bookedDates={bookedDates} property={property}/>
                 </div>
             </div>
         </Wrapper>

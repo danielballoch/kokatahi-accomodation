@@ -31,15 +31,17 @@ export default async(req, res) => {
   }
   try {
     let message = {
-      "From": "info@motoschool.co.nz",
+      "From": "daniel@thoughtfulhq.com",
       "To": req.body.email,
-      "ReplyTo": "philsmotoschool@outlook.com",
-      "TemplateId" : 34430551,
+      "ReplyTo": "daniel@thoughtfulhq.com",
+      "TemplateId" : 35706082,
       "TemplateModel": {
         "name": req.body.name,
         "email": req.body.email,
         "phone": req.body.phone,
-        "message": req.body.message
+        "property": req.body.property,
+        "dates": req.body.dates,
+        "price": req.body.price
       },
       "MessageStream": "outbound"
     }

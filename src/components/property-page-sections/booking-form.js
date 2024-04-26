@@ -2,7 +2,7 @@ import React, {useRef, useEffect, useState} from "react"
 import styled from "@emotion/styled"
 import { useForm } from "react-hook-form"
 import ReCAPTCHA from "react-google-recaptcha";
-import { isWithinInterval } from "date-fns";
+import { isWithinInterval, format } from "date-fns";
 import DateRangePicker from '@wojtekmaj/react-daterange-picker';
 import '@wojtekmaj/react-daterange-picker/dist/DateRangePicker.css';
 import 'react-calendar/dist/Calendar.css';
@@ -37,9 +37,32 @@ form {
     //     background-color: #4a9c2d!important;
     //     color: white !important;
     // }
-    label, input, textarea, button {
+   .input-style {
         // margin: 0 20px;
         // margin-left: 20px;
+        border: solid 1px #8f8f9d;
+        border-radius: 3px;
+        :focus {
+            outline: 5px auto #5E9ED6!important;
+            box-shadow: unset;
+        }
+    }
+    .rooms {
+        margin-top: 20px;
+        select {
+            margin-left: 10px;
+            padding: 5px 10px;
+            background-color: white;
+            border: solid 1px #8f8f9d;
+            border-radius: 3px;
+            
+            // box-shadow: 0 0 3px #CC0000;
+            :focus {
+                // border: unset;
+                outline: 5px auto #5E9ED6!important;
+                box-shadow: 0 0 0 #5E9ED6!important;
+            }
+        }
     }
     .time-selection {
         display: flex;
@@ -113,13 +136,16 @@ form {
         height: 100px;
         resize:vertical;
     }
-    // .react-daterange-picker__wrapper {
-    //     // margin-left: 20px;
-    //     margin-bottom: 20px;
-    //     :hover {
-    //         cursor: pointer;
-    //     }
-    // }
+    .react-daterange-picker__wrapper {
+        // margin-left: 20px;
+        // margin-bottom: 20px;
+        border: solid 1px #8f8f9d;
+        border-radius: 3px;
+        padding: 2px;
+        :hover {
+            cursor: pointer;
+        }
+    }
     .message {
         display: flex;
         flex-direction: column;
@@ -234,11 +260,43 @@ function isWithinRanges(date, ranges) {
     return ranges.some(range => isWithinRange(date, range));
 }
 
-export default function BookingForm({bookedDates}){
+export default function BookingForm({bookedDates, property}){
     const [selectedDate, updateSelectedDate] = useState();
     const reRef = useRef();
     const [serverState, setServerState] = useState({formSent: false});
+    const [roomOption, updateRoomOption] = useState(1);
+    const [price, updatePrice] = useState();
+    const [propertyText, updatePropertyText] = useState();
+    const [priceEstimate, updatePriceEstimate] = useState();
     // console.log("bookedDates2:", bookedDates)
+
+    //extra form data
+   
+
+    useEffect(() => {
+        //set base room price for price * days calculation and propertyText for form submission
+        if (property === 1 && Number(roomOption) === 1){updatePrice(100);updatePropertyText("Tui Bnb - Self Contained Wing (1 of 3 rooms, 1 toilet, sleeps up to 2)")}
+        else if (property === 1 && Number(roomOption) === 2){updatePrice(200);updatePropertyText("Tui Bnb - Self Contained Wing (2 of 3 rooms, 1 toilet, sleeps up to 4)")}
+        else if (property === 1 && Number(roomOption) === 3){updatePrice(250);updatePropertyText("Tui Bnb - Self Contained Wing (3 rooms, 1 toilet, sleeps up to 6)")}
+        else if (property === 2){updatePrice(450);updatePropertyText("Longford - Private Home (4 rooms, 2 toilets, sleeps up to 8)")}
+        else if (property === 3){updatePrice(700);updatePropertyText("The Full Suite - Both Properties (7 rooms, 3 toilets, sleeps up to 14)")}
+        console.log("price: ", price)
+        console.log("propertyText: ", propertyText)
+
+        //cost estimate
+        let timeDifference
+        let daysDifference
+        if(selectedDate){
+            timeDifference = selectedDate[1].getTime() - selectedDate[0].getTime();
+            daysDifference = Math.round(timeDifference / (1000 * 3600 *24))
+            updatePriceEstimate(daysDifference*price)
+        } else {
+            updatePriceEstimate(price)
+        }
+        
+
+    },[roomOption, selectedDate, price])
+    
 
     function tileDisabled({ date, view}) {
       // Add class to tiles in month view onlys
@@ -261,13 +319,25 @@ export default function BookingForm({bookedDates}){
         const token = await reRef.current.executeAsync();
         reRef.current.reset();
 
+        let day1 = format(selectedDate[0], "dd/MM/yyy")
+        let day2 = format(selectedDate[1], "dd/MM/yyy")
+        let days = day1 + " - " + day2
+        console.log("dayss: ", day1, day2)
+
+        let timeDifference = selectedDate[1].getTime() - selectedDate[0].getTime();
+        let daysDifference = Math.round(timeDifference / (1000 * 3600 *24))
+
+
+
         fetch(`/api/postmark-support`, {
           method: `POST`,
           body: JSON.stringify({
             name: data.Name,
             email: data.Email,
             phone: data.Phone,
-            message: data.Message,
+            property: propertyText,
+            dates: days,
+            price: priceEstimate + " for " + daysDifference + " nights",
             token
         }),
           headers: {
@@ -307,6 +377,7 @@ export default function BookingForm({bookedDates}){
                     {/* <h2>Booking Form</h2> */}
                     <label htmlFor="name">Name</label>
                     <input
+                        className="input-style"
                         id="name"
                         type="text" 
                         name="name" 
@@ -315,6 +386,7 @@ export default function BookingForm({bookedDates}){
                     />
                      <label htmlFor="phone">Phone:</label>
                     <input
+                        className="input-style"
                         id="phone"
                         type="phone" 
                         name="phone" 
@@ -323,18 +395,37 @@ export default function BookingForm({bookedDates}){
                     />
                     <label htmlFor="email">Email:</label>
                     <input
+                        className="input-style"
                         id="email"
                         type="email" 
                         name="email" 
                         required  
                         {...register("Email", { required: true, maxLength: 100 })} 
                     />
-                    <label htmlFor="bikes">Booking Date(s):</label>
+                    {property === 1?
+                    <span className="rooms">
+                        <label htmlFor="rooms">Bedroom(s):</label>
+                        <select
+                            className="input-style"
+                            id="rooms"
+                            type="rooms" 
+                            name="rooms" 
+                            onChange={(e) => {updateRoomOption(e.target.value); console.log("e:", e.target.value)}}
+                        >
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </span>
+                        : <span></span>
+                    }
+                    <label htmlFor="bookingdates">Booking Date(s):</label>
                     {/* <DRP /> */}
                     {/* <Calendar/> */}
                     {/* <DatePicker onChange={updateSelectedDate} value={selectedDate} tileDisabled={tileDisabled} minDate={new Date()} format="dd-MM-y"/> */}
                     <DateRangePicker tileDisabled={tileDisabled} onChange={updateSelectedDate} minDate={new Date()} value={selectedDate} format="dd-MM-y"/>
 
+                    <p>Price Estimate: ${priceEstimate} (NZD)</p>
                     <button
                         type="submit" 
                         class="g-recaptcha button-style"
