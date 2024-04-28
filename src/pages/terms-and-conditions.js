@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 margin: 200px auto;
 padding: 20px;
 max-width: 800px;
-
+color: white;
 `
 
 export default function Terms(){
