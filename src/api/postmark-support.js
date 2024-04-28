@@ -31,24 +31,22 @@ export default async(req, res) => {
   }
   try {
     let message = {
-      "From": "daniel@thoughtfulhq.com",
+      "From": "Kokatahi Accomodation <daniel@thoughtfulhq.com>",
       "To": req.body.email,
-      "ReplyTo": "daniel@thoughtfulhq.com",
-      "TemplateId" : 35706082,
+      "ReplyTo": "kokatahi.accommodation@gmail.com",
+      "TemplateId" : 35728027,
       "TemplateModel": {
         "name": req.body.name,
         "email": req.body.email,
         "phone": req.body.phone,
-        "property": req.body.property,
-        "dates": req.body.dates,
-        "price": req.body.price
+        "message": req.body.message
       },
       "MessageStream": "outbound"
     }
     return client.sendEmailWithTemplate(message).then(
       () => {
         console.log("customer-support-sent")
-        message.To = "daniel@thoughtfulhq.com"
+        message.To = "kokatahi.accommodation@gmail.com"
         message.ReplyTo = req.body.email
         client.sendEmailWithTemplate(message)
       }

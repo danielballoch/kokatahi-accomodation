@@ -1,4 +1,5 @@
 import React, {useRef, useEffect, useState} from "react"
+import { navigate } from "gatsby";
 import styled from "@emotion/styled"
 import { useForm } from "react-hook-form"
 import ReCAPTCHA from "react-google-recaptcha";
@@ -242,7 +243,7 @@ export default function ContactElectrical(){
           .then(body => {
             console.log(`response from API:`, body);
           })
-          .then(setServerState({formSent: true}))
+          .then(navigate("/form-success#top"))
       }
       console.log({ errors })
       useEffect(() => {

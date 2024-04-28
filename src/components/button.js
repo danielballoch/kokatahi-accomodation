@@ -8,7 +8,7 @@ const Wrapper = styled(Link)`
 
     background-color: #535d41;
     color: white;
-    margin: 48px;
+    margin: 0 48px;
     font-size: 1.25rem;
     border: none;
     padding: 18px 40px;
@@ -52,7 +52,7 @@ const Wrapper = styled(Link)`
 
 export default function Button({buttonText, buttonLink}){
   return(
-    <Wrapper to={buttonLink}>
+    <Wrapper to={buttonLink} className="animate">
         <button>
             {buttonText}
             <svg class="arrow-icon" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -1,5 +1,6 @@
 import React, {useRef, useEffect, useState} from "react"
 import styled from "@emotion/styled"
+import { navigate } from "gatsby"
 import { useForm } from "react-hook-form"
 import ReCAPTCHA from "react-google-recaptcha";
 import { isWithinInterval, format } from "date-fns";
@@ -329,7 +330,7 @@ export default function BookingForm({bookedDates, property}){
 
 
 
-        fetch(`/api/postmark-support`, {
+        fetch(`/api/postmark-booking`, {
           method: `POST`,
           body: JSON.stringify({
             name: data.Name,
@@ -348,7 +349,7 @@ export default function BookingForm({bookedDates, property}){
           .then(body => {
             console.log(`response from API:`, body);
           })
-          .then(setServerState({formSent: true}))
+          .then(navigate("/booking-form-success#top"))
       }
       console.log({ errors })
       useEffect(() => {
