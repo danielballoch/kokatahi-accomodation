@@ -150,7 +150,7 @@ useGSAP(
             <div className="content-wrapper">
                 <div className="main-content" >
                     <h1 className="animate">
-                        Kokatahi Accomodation
+                        Kokatahi Accommodation
                         {/* {c.heroTitle} */}
                         </h1>
                     <p className="animate">The Perfect spot for your Hokitika exploration, family holiday, or outdoors escape. </p>

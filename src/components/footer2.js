@@ -109,7 +109,7 @@ export default function Footer() {
     <Wrapper>
         <div className="footer-content">
             <div className="logo-wrap">
-                <Link to="/"><h2><span>Kokatahi</span> Accomodation</h2></Link>
+                <Link to="/"><h2><span>Kokatahi</span> Accommodation</h2></Link>
                 <p>The Perfect spot for your Hokitika exploration, family holiday, or outdoors escape. <Link to="/accomodation#top">Book a stay at one of our properties today!</Link></p>
             </div>
             <div className="nav">
@@ -126,7 +126,7 @@ export default function Footer() {
             </div>
         </div>
         <div className="bottom-footer">
-            <Link to="/">© Kokatahi Accomodation 2024</Link>
+            <Link to="/">© Kokatahi Accommodation 2024</Link>
             <Link target="_blank" to="https://www.thoughtfulhq.com">Website by thoughtfulHQ</Link>
         </div>
         
