@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "@emotion/styled"
 import JSConfetti from 'js-confetti'
 import { GatsbyImage, getImage} from "gatsby-plugin-image"
@@ -64,13 +64,18 @@ overflow: clip;
 
 const jsConfetti = new JSConfetti()
 
-jsConfetti.addConfetti()
+
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function Hero({title, message}){
-
+    
 const heroref = useRef();
+
+useEffect(()=> {
+    jsConfetti.addConfetti()
+},[])
+
 useGSAP(
     () => {
         gsap.to('.animatebg', {
