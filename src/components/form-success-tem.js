@@ -62,7 +62,7 @@ overflow: clip;
 }
 `
 
-const jsConfetti = new JSConfetti()
+
 
 
 
@@ -73,6 +73,7 @@ export default function Hero({title, message}){
 const heroref = useRef();
 
 useEffect(()=> {
+    const jsConfetti = new JSConfetti()
     jsConfetti.addConfetti()
 },[])
 
