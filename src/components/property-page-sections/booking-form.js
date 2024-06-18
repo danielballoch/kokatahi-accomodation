@@ -38,6 +38,10 @@ form {
     //     background-color: #4a9c2d!important;
     //     color: white !important;
     // }
+    .summary {
+    font-size: 13px;
+    font-style: italic;
+    }
    .input-style {
         // margin: 0 20px;
         // margin-left: 20px;
@@ -253,6 +257,8 @@ form {
     font-size: 16px;
     padding: 5px;
 }
+}
+
 `
 function isWithinRange(date, range) {
     return isWithinInterval(date, { start: range[0], end: range[1] });
@@ -269,6 +275,7 @@ export default function BookingForm({bookedDates, property}){
     const [price, updatePrice] = useState();
     const [propertyText, updatePropertyText] = useState();
     const [priceEstimate, updatePriceEstimate] = useState();
+    const [nights, updateNights] = useState(0);
     // console.log("bookedDates2:", bookedDates)
 
     //extra form data
@@ -283,6 +290,7 @@ export default function BookingForm({bookedDates, property}){
         else if (property === 3){updatePrice(700);updatePropertyText("The Full Suite - Both Properties (7 rooms, 3 toilets, sleeps up to 14)")}
         console.log("price: ", price)
         console.log("propertyText: ", propertyText)
+     
 
         //cost estimate
         let timeDifference
@@ -290,11 +298,13 @@ export default function BookingForm({bookedDates, property}){
         if(selectedDate){
             timeDifference = selectedDate[1].getTime() - selectedDate[0].getTime();
             daysDifference = Math.round(timeDifference / (1000 * 3600 *24))
-            updatePriceEstimate(daysDifference*price)
+            let nights = daysDifference -1; 
+            updateNights(nights);
+            updatePriceEstimate(nights*price)
         } else {
             updatePriceEstimate(price)
         }
-        
+        console.log(daysDifference)
 
     },[roomOption, selectedDate, price])
     
@@ -338,7 +348,7 @@ export default function BookingForm({bookedDates, property}){
             phone: data.Phone,
             property: propertyText,
             dates: days,
-            price: priceEstimate + " for " + daysDifference + " nights",
+            price: priceEstimate + " for " + nights + " nights",
             token
         }),
           headers: {
@@ -376,7 +386,7 @@ export default function BookingForm({bookedDates, property}){
                         </div>
                     </div>
                     {/* <h2>Booking Form</h2> */}
-                    <label htmlFor="name">Name</label>
+                    <label htmlFor="name">Name:</label>
                     <input
                         className="input-style"
                         id="name"
@@ -420,12 +430,13 @@ export default function BookingForm({bookedDates, property}){
                     </span>
                         : <span></span>
                     }
-                    <label htmlFor="bookingdates">Booking Date(s):</label>
+                    <label htmlFor="bookingdates">Booking Dates:</label>
                     {/* <DRP /> */}
                     {/* <Calendar/> */}
                     {/* <DatePicker onChange={updateSelectedDate} value={selectedDate} tileDisabled={tileDisabled} minDate={new Date()} format="dd-MM-y"/> */}
                     <DateRangePicker tileDisabled={tileDisabled} onChange={updateSelectedDate} minDate={new Date()} value={selectedDate} format="dd-MM-y"/>
 
+                    <p className="summary">{nights === 1? nights + " x night accomodation" : nights > 1? nights + " x nights accomodation" : "Please select your booking dates."}</p>
                     <p>Price Estimate: ${priceEstimate} (NZD)</p>
                     <button
                         type="submit" 
