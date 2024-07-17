@@ -290,7 +290,7 @@ export default function BookingForm({bookedDates, property}){
         else if (property === 3){updatePrice(700);updatePropertyText("The Full Suite - Both Properties (7 rooms, 3 toilets, sleeps up to 14)")}
         console.log("price: ", price)
         console.log("propertyText: ", propertyText)
-     
+        console.log("property", property)
 
         //cost estimate
         let timeDifference
@@ -298,9 +298,14 @@ export default function BookingForm({bookedDates, property}){
         if(selectedDate){
             timeDifference = selectedDate[1].getTime() - selectedDate[0].getTime();
             daysDifference = Math.round(timeDifference / (1000 * 3600 *24))
-            let nights = daysDifference -1; 
+            let nights = daysDifference -1;
+            let limit = 1;
+            
             updateNights(nights);
-            updatePriceEstimate(nights*price)
+            if(property === 2 && nights < 2){updatePriceEstimate(2*price); updateNights(2); console.log("nights", nights)} 
+            else {updatePriceEstimate(nights*price)}
+            console.log(nights)
+            
         } else {
             updatePriceEstimate(price)
         }
