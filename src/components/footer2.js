@@ -127,7 +127,7 @@ export default function Footer() {
         </div>
         <div className="bottom-footer">
             <Link to="/">© Kokatahi Accommodation 2024</Link>
-            <Link target="_blank" to="https://www.thoughtfulhq.com">Website by thoughtfulHQ</Link>
+            <Link target="_blank" to="https://www.tyrocreative.co.nz">Website by TYRO Creative</Link>
         </div>
         
     </Wrapper>
