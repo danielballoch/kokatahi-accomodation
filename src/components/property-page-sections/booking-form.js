@@ -302,8 +302,10 @@ export default function BookingForm({bookedDates, property}){
             let limit = 1;
             
             updateNights(nights);
-            if(property === 2 && nights < 2){updatePriceEstimate(2*price); updateNights(2); console.log("nights", nights)} 
-            else {updatePriceEstimate(nights*price)}
+            //remove minimum 2 nights 
+            // if(property === 2 && nights < 2){updatePriceEstimate(2*price); updateNights(2); console.log("nights", nights)} 
+            // else {updatePriceEstimate(nights*price)}
+            updatePriceEstimate(nights*price)
             console.log(nights)
             
         } else {
