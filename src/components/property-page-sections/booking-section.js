@@ -123,7 +123,8 @@ export default function MainContent({datesUnavailable, property}){
 
     useEffect(()=> {
         let datesUnavailableRanges = []
-        for(let i = 0; i < datesUnavailable.length; i++){
+        console.log(datesUnavailable)
+        for(let i = 0; i < datesUnavailable.length && datesUnavailable[i].bookedDate !== null; i++){
             let d = datesUnavailable[i].bookedDate.split("-")
             let d2 = datesUnavailable[i].bookedDate.split("-")
             //Use end date if it exists
