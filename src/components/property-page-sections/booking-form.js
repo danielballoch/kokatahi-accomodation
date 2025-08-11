@@ -288,12 +288,12 @@ export default function BookingForm({bookedDates, property}){
         else if (property === 1 && Number(roomOption) === 3){updatePrice(250);updatePropertyText("Tui Bnb - Self Contained Wing (3 rooms, 1 toilet, sleeps up to 6)")}
         else if (property === 2){
             if(Number(roomOption) === 1 || Number(roomOption) === 2){updatePrice(150)}
-            else if(Number(roomOption) === 3){updatePrice(175)}
-            else if(Number(roomOption) === 4){updatePrice(200)}
-            else if(Number(roomOption) === 5){updatePrice(225)}
-            else if(Number(roomOption) === 6){updatePrice(250)}
-            else if(Number(roomOption) === 7){updatePrice(275)}
-            else if(Number(roomOption) === 8){updatePrice(300)}
+            else if (Number(roomOption) === 3) { updatePrice(180) }
+            else if (Number(roomOption) === 4) { updatePrice(210) }
+            else if (Number(roomOption) === 5) { updatePrice(240) }
+            else if (Number(roomOption) === 6) { updatePrice(270) }
+            else if (Number(roomOption) === 7) { updatePrice(300) }
+            else if (Number(roomOption) === 8) { updatePrice(330) }
             updatePropertyText("Longford - Private Home (4 rooms, 2 toilets, sleeps up to 8)")
         }
         else if (property === 3){updatePrice(700);updatePropertyText("The Full Suite - Both Properties (7 rooms, 3 toilets, sleeps up to 14)")}
