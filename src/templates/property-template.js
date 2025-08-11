@@ -112,8 +112,18 @@ console.log("properties to send: ", datesToSend);
   )
 }
 
+
+let titletags=[
+  "Tui BnB – Kokatahi Holiday Home Near Hokitika | West Coast NZ",
+  "Longford – West Coast Accommodation Near Hokitika | Kokatahi BnB",
+  "The Full Suite BnB – Group Accommodation Near Hokitika, West Coast NZ"]
+let metadescriptions=[
+  "Relax in this classic Kiwi stay with 3 queen bedrooms, fireplace, and country views. Perfect West Coast accommodation near Hokitika.",
+  "Spacious holiday home with pool table, sunny deck, and 4 bedrooms. Pet-friendly West Coast stay just minutes from Hokitika.",
+  "Rent both Kokatahi properties for up to 14 guests. Ideal for groups visiting Hokitika & the West Coast, with fireplaces, decks, and country views."]
+
 export const Head = ({pageContext}) => <SEO
-title={"Stay Option " + Number(pageContext.id + 1)  + " | Kokatahi Accommodation"}
-description={"Stay Option " + Number(pageContext.id + 1)  + " could be perfect for your West Coast or Hokitika trip."}
+title={titletags[Number(pageContext.id + 1)]}
+description={metadescriptions[Number(pageContext.id + 1)]}
 />
 
